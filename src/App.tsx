@@ -1,6 +1,7 @@
 import { ArcadeRoomBackground } from './components/ArcadeRoomBackground'
 import { ScreenBezel } from './components/CenterDisplay'
 import { ConsoleShell } from './components/ConsoleShell'
+import { EndPlayingButton } from './components/EndPlayingButton'
 import { GameMenu } from './components/GameMenu'
 import { LeftJoycon } from './components/LeftJoyconPanel'
 import { RightJoycon } from './components/RightJoyconPanel'
@@ -30,9 +31,7 @@ function App() {
             }
             rightJoycon={
               <RightJoycon>
-                <p className="text-sm font-medium text-slate-950/80">
-                  Placeholder region for future actions and status controls.
-                </p>
+                <EndPlayingButton />
               </RightJoycon>
             }
           />

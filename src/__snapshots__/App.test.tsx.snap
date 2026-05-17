@@ -368,11 +368,37 @@ exports[`App > matches the desktop shell snapshot 1`] = `
               <div
                 class="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent"
               />
-              <p
-                class="text-sm font-medium text-slate-950/80"
+              <button
+                aria-disabled="true"
+                class="group relative w-full overflow-hidden rounded-[1.6rem] border px-5 py-5 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/45 focus-visible:ring-offset-2 focus-visible:ring-offset-rose-300 cursor-not-allowed border-slate-950/10 bg-white/15 text-slate-950/45"
+                disabled=""
+                type="button"
               >
-                Placeholder region for future actions and status controls.
-              </p>
+                <div
+                  class="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-white/55 to-transparent"
+                />
+                <div
+                  class="flex items-center justify-between gap-4"
+                >
+                  <div>
+                    <p
+                      class="text-[0.68rem] font-black uppercase tracking-[0.32em] text-current/60"
+                    >
+                      Session Control
+                    </p>
+                    <p
+                      class="mt-3 text-xl font-black uppercase tracking-[0.08em]"
+                    >
+                      End Playing
+                    </p>
+                  </div>
+                  <div
+                    class="grid h-12 w-12 place-items-center rounded-full border text-xs font-black uppercase transition border-slate-950/10 bg-white/10 text-current/50"
+                  >
+                    Stop
+                  </div>
+                </div>
+              </button>
             </div>
           </section>
         </aside>
@@ -750,11 +776,37 @@ exports[`App > matches the tablet shell snapshot 1`] = `
               <div
                 class="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent"
               />
-              <p
-                class="text-sm font-medium text-slate-950/80"
+              <button
+                aria-disabled="true"
+                class="group relative w-full overflow-hidden rounded-[1.6rem] border px-5 py-5 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/45 focus-visible:ring-offset-2 focus-visible:ring-offset-rose-300 cursor-not-allowed border-slate-950/10 bg-white/15 text-slate-950/45"
+                disabled=""
+                type="button"
               >
-                Placeholder region for future actions and status controls.
-              </p>
+                <div
+                  class="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-white/55 to-transparent"
+                />
+                <div
+                  class="flex items-center justify-between gap-4"
+                >
+                  <div>
+                    <p
+                      class="text-[0.68rem] font-black uppercase tracking-[0.32em] text-current/60"
+                    >
+                      Session Control
+                    </p>
+                    <p
+                      class="mt-3 text-xl font-black uppercase tracking-[0.08em]"
+                    >
+                      End Playing
+                    </p>
+                  </div>
+                  <div
+                    class="grid h-12 w-12 place-items-center rounded-full border text-xs font-black uppercase transition border-slate-950/10 bg-white/10 text-current/50"
+                  >
+                    Stop
+                  </div>
+                </div>
+              </button>
             </div>
           </section>
         </aside>
