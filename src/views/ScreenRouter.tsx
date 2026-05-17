@@ -1,13 +1,23 @@
-import { useRoute } from '../context/useRoute'
+import { useSession } from '../context/useSession'
+import { gameRegistryById } from '../games'
+import { GoodbyeView } from './GoodbyeView'
 import { WelcomeView } from './WelcomeView'
 
 export const ScreenRouter = () => {
-  const { currentRoute } = useRoute()
+  const {
+    state: { isEnded, selectedGame },
+  } = useSession()
+  const activeGame = selectedGame
 
-  switch (currentRoute) {
-    case 'welcome':
-      return <WelcomeView />
-    default:
-      return <WelcomeView />
+  if (isEnded) {
+    return <GoodbyeView />
   }
+
+  if (activeGame === null) {
+    return <WelcomeView />
+  }
+
+  const ActiveGameScreen = gameRegistryById[activeGame].component
+
+  return <ActiveGameScreen key={activeGame} />
 }
