@@ -1,3 +1,5 @@
+import { Game2048 } from './Game2048'
+
 type GameScreenProps = {
   title: string
   subtitle: string
@@ -22,12 +24,7 @@ const GameScreenPlaceholder = ({ title, subtitle }: GameScreenProps) => {
 }
 
 export const Game2048Screen = () => {
-  return (
-    <GameScreenPlaceholder
-      subtitle="Stack matching tiles to climb toward the 2048 benchmark."
-      title="2048"
-    />
-  )
+  return <Game2048 />
 }
 
 export const PacmanScreen = () => {
