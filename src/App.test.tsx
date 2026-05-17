@@ -15,5 +15,6 @@ describe('App', () => {
         /custom arcade theme with joycon, console, and screen bezel tokens/i
       )
     ).toBeInTheDocument()
+    expect(screen.getByText('VITE_HEXGL_BASE_PATH=/hexgl/')).toBeInTheDocument()
   })
 })
