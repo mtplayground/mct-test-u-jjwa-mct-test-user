@@ -16,6 +16,7 @@ describe('GamePacman', () => {
     expect(
       screen.getByLabelText('Pac-Man pellets remaining')
     ).toHaveTextContent('40')
+    expect(screen.getByLabelText('Pac-Man lives')).toHaveTextContent('3')
     expect(screen.getByLabelText('Pac-Man maze')).toBeInTheDocument()
   })
 
@@ -44,5 +45,19 @@ describe('GamePacman', () => {
     expect(
       screen.getByText('Use arrow keys to clear the maze.')
     ).toBeInTheDocument()
+  })
+
+  it('shows fright mode after a power pellet route', () => {
+    render(<GamePacman />)
+
+    fireEvent.keyDown(window, { key: 'ArrowLeft' })
+    fireEvent.keyDown(window, { key: 'ArrowLeft' })
+    fireEvent.keyDown(window, { key: 'ArrowLeft' })
+    fireEvent.keyDown(window, { key: 'ArrowLeft' })
+    fireEvent.keyDown(window, { key: 'ArrowUp' })
+    fireEvent.keyDown(window, { key: 'ArrowUp' })
+
+    expect(screen.getByText('Power pellet collected.')).toBeInTheDocument()
+    expect(screen.getByText('Fright')).toBeInTheDocument()
   })
 })

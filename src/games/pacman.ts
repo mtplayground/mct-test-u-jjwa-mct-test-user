@@ -1,6 +1,9 @@
 export const PACMAN_TILE_SIZE = 24
+export const PACMAN_FRIGHT_TICKS = 8
+export const PACMAN_STARTING_LIVES = 3
 
 export type DirectionPacman = 'up' | 'down' | 'left' | 'right'
+export type GhostModePacman = 'chase' | 'scatter' | 'frightened'
 
 export type PositionPacman = {
   row: number
@@ -9,12 +12,34 @@ export type PositionPacman = {
 
 export type MazeTilePacman = 'wall' | 'path'
 
+export type GhostPacman = {
+  id: 'blinky' | 'pinky' | 'inky' | 'clyde'
+  color: string
+  position: PositionPacman
+  spawn: PositionPacman
+  scatterTarget: PositionPacman
+  direction: DirectionPacman
+}
+
 export type PacmanState = {
   maze: MazeTilePacman[][]
   pellets: Set<string>
   powerPellets: Set<string>
   player: PositionPacman
+  playerSpawn: PositionPacman
+  ghosts: GhostPacman[]
   score: number
+  lives: number
+  frightTicks: number
+  turnCount: number
+}
+
+export type TurnResultPacman = {
+  state: PacmanState
+  moved: boolean
+  atePellet: boolean
+  atePowerPellet: boolean
+  collision: 'none' | 'ghost-hit' | 'ghost-eaten'
 }
 
 export const PACMAN_LAYOUT = [
@@ -33,6 +58,39 @@ const directionVectors: Record<DirectionPacman, PositionPacman> = {
   left: { row: 0, column: -1 },
   right: { row: 0, column: 1 },
 }
+
+const directionPriority: DirectionPacman[] = ['up', 'left', 'down', 'right']
+
+const ghostTemplates: Omit<GhostPacman, 'position'>[] = [
+  {
+    id: 'blinky',
+    color: '#ef4444',
+    spawn: { row: 3, column: 7 },
+    scatterTarget: { row: 1, column: 11 },
+    direction: 'left',
+  },
+  {
+    id: 'pinky',
+    color: '#f472b6',
+    spawn: { row: 3, column: 8 },
+    scatterTarget: { row: 1, column: 1 },
+    direction: 'right',
+  },
+  {
+    id: 'inky',
+    color: '#22d3ee',
+    spawn: { row: 5, column: 4 },
+    scatterTarget: { row: 5, column: 11 },
+    direction: 'up',
+  },
+  {
+    id: 'clyde',
+    color: '#fb923c',
+    spawn: { row: 5, column: 8 },
+    scatterTarget: { row: 5, column: 1 },
+    direction: 'up',
+  },
+]
 
 export const createPositionKeyPacman = ({ row, column }: PositionPacman) => {
   return `${row}:${column}`
@@ -72,7 +130,15 @@ export const createPacmanState = (): PacmanState => {
     pellets,
     powerPellets,
     player,
+    playerSpawn: player,
+    ghosts: ghostTemplates.map((ghost) => ({
+      ...ghost,
+      position: ghost.spawn,
+    })),
     score: 0,
+    lives: PACMAN_STARTING_LIVES,
+    frightTicks: 0,
+    turnCount: 0,
   }
 }
 
@@ -106,6 +172,134 @@ export const getNextPositionPacman = (
   }
 }
 
+const getManhattanDistancePacman = (
+  from: PositionPacman,
+  to: PositionPacman
+) => {
+  return Math.abs(from.row - to.row) + Math.abs(from.column - to.column)
+}
+
+export const getGhostModePacman = (state: PacmanState): GhostModePacman => {
+  if (state.frightTicks > 0) {
+    return 'frightened'
+  }
+
+  return state.turnCount % 8 < 4 ? 'scatter' : 'chase'
+}
+
+export const getGhostAvailableDirectionsPacman = (
+  state: PacmanState,
+  ghost: GhostPacman
+) => {
+  return directionPriority.filter((direction) => {
+    return !isWallPacman(
+      state.maze,
+      getNextPositionPacman(ghost.position, direction)
+    )
+  })
+}
+
+const moveGhostPacman = (
+  state: PacmanState,
+  ghost: GhostPacman,
+  mode: GhostModePacman
+) => {
+  const availableDirections = getGhostAvailableDirectionsPacman(state, ghost)
+
+  if (availableDirections.length === 0) {
+    return ghost
+  }
+
+  const target = mode === 'scatter' ? ghost.scatterTarget : state.player
+
+  const orderedDirections = [...availableDirections].sort((left, right) => {
+    const leftPosition = getNextPositionPacman(ghost.position, left)
+    const rightPosition = getNextPositionPacman(ghost.position, right)
+    const leftDistance = getManhattanDistancePacman(leftPosition, target)
+    const rightDistance = getManhattanDistancePacman(rightPosition, target)
+
+    if (mode === 'frightened') {
+      return rightDistance - leftDistance
+    }
+
+    return leftDistance - rightDistance
+  })
+
+  const nextDirection = orderedDirections[0]
+
+  return {
+    ...ghost,
+    direction: nextDirection,
+    position: getNextPositionPacman(ghost.position, nextDirection),
+  }
+}
+
+const resetActorsAfterHitPacman = (state: PacmanState): PacmanState => {
+  return {
+    ...state,
+    player: state.playerSpawn,
+    ghosts: state.ghosts.map((ghost) => ({
+      ...ghost,
+      direction: ghost.direction,
+      position: ghost.spawn,
+    })),
+    frightTicks: 0,
+  }
+}
+
+const resolveGhostCollisionPacman = (state: PacmanState): TurnResultPacman => {
+  const collidedGhost = state.ghosts.find((ghost) => {
+    return (
+      ghost.position.row === state.player.row &&
+      ghost.position.column === state.player.column
+    )
+  })
+
+  if (!collidedGhost) {
+    return {
+      state,
+      moved: true,
+      atePellet: false,
+      atePowerPellet: false,
+      collision: 'none',
+    }
+  }
+
+  if (state.frightTicks > 0) {
+    return {
+      state: {
+        ...state,
+        ghosts: state.ghosts.map((ghost) => {
+          if (ghost.id !== collidedGhost.id) {
+            return ghost
+          }
+
+          return {
+            ...ghost,
+            position: ghost.spawn,
+          }
+        }),
+        score: state.score + 200,
+      },
+      moved: true,
+      atePellet: false,
+      atePowerPellet: false,
+      collision: 'ghost-eaten',
+    }
+  }
+
+  return {
+    state: resetActorsAfterHitPacman({
+      ...state,
+      lives: Math.max(0, state.lives - 1),
+    }),
+    moved: true,
+    atePellet: false,
+    atePowerPellet: false,
+    collision: 'ghost-hit',
+  }
+}
+
 export const movePlayerPacman = (
   state: PacmanState,
   direction: DirectionPacman
@@ -134,10 +328,67 @@ export const movePlayerPacman = (
       pellets,
       powerPellets,
       score: state.score + (atePellet ? 10 : 0) + (atePowerPellet ? 50 : 0),
+      frightTicks: atePowerPellet ? PACMAN_FRIGHT_TICKS : state.frightTicks,
     },
     moved: true,
     atePellet,
     atePowerPellet,
+  }
+}
+
+export const advanceGhostsPacman = (state: PacmanState) => {
+  const mode = getGhostModePacman(state)
+
+  return {
+    ...state,
+    ghosts: state.ghosts.map((ghost) => moveGhostPacman(state, ghost, mode)),
+  }
+}
+
+export const runPacmanTurn = (
+  state: PacmanState,
+  direction: DirectionPacman
+): TurnResultPacman => {
+  const moveResult = movePlayerPacman(state, direction)
+
+  if (!moveResult.moved) {
+    return {
+      state,
+      moved: false,
+      atePellet: false,
+      atePowerPellet: false,
+      collision: 'none',
+    }
+  }
+
+  const steppedState: PacmanState = {
+    ...moveResult.state,
+    turnCount: state.turnCount + 1,
+  }
+
+  const immediateCollision = resolveGhostCollisionPacman(steppedState)
+
+  if (immediateCollision.collision !== 'none') {
+    return {
+      ...immediateCollision,
+      atePellet: moveResult.atePellet,
+      atePowerPellet: moveResult.atePowerPellet,
+    }
+  }
+
+  const advancedGhostState = advanceGhostsPacman({
+    ...steppedState,
+    frightTicks: Math.max(
+      0,
+      steppedState.frightTicks - (moveResult.atePowerPellet ? 0 : 1)
+    ),
+  })
+  const ghostCollision = resolveGhostCollisionPacman(advancedGhostState)
+
+  return {
+    ...ghostCollision,
+    atePellet: moveResult.atePellet,
+    atePowerPellet: moveResult.atePowerPellet,
   }
 }
 
