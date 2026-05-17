@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
 
+import { CenterDisplay } from './CenterDisplay'
+
 type ConsoleShellProps = {
   leftJoycon: ReactNode
   screen: ReactNode
@@ -22,12 +24,8 @@ export const ConsoleShell = ({
           {leftJoycon}
         </aside>
 
-        <section className="bg-console-panel/95 px-6 py-10 sm:px-8 md:px-10 md:py-12">
-          <div className="rounded-[1.75rem] border border-screen-bezel/80 bg-screen-bezel p-4 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]">
-            <div className="rounded-[1.25rem] bg-slate-950/90 px-6 py-10">
-              {screen}
-            </div>
-          </div>
+        <section className="bg-console-panel/95 px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10">
+          <CenterDisplay>{screen}</CenterDisplay>
         </section>
 
         <aside className="bg-console-panel/20 px-3 py-3 md:px-4 md:py-4">

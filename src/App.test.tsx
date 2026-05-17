@@ -8,6 +8,8 @@ describe('App', () => {
     render(<App />)
 
     expect(screen.getByLabelText('Console body')).toBeInTheDocument()
+    expect(screen.getByLabelText('Center display bezel')).toBeInTheDocument()
+    expect(screen.getByLabelText('Inner display region')).toBeInTheDocument()
     expect(
       screen.getByRole('heading', { name: 'Console layout scaffolded.' })
     ).toBeInTheDocument()
