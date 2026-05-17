@@ -1,5 +1,6 @@
 import { ArcadeRoomBackground } from './components/ArcadeRoomBackground'
 import { ConsoleShell } from './components/ConsoleShell'
+import { LeftJoyconPanel } from './components/LeftJoyconPanel'
 import { RouteProvider } from './context/RouteContext'
 import { ScreenRouter } from './views/ScreenRouter'
 
@@ -11,16 +12,11 @@ function App() {
         <div className="relative mx-auto flex min-h-[calc(100vh-3rem)] max-w-[88rem] items-center justify-center md:min-h-[calc(100vh-4rem)]">
           <ConsoleShell
             leftJoycon={
-              <section aria-label="Left joycon region" className="space-y-4">
-                <p className="text-xs font-black uppercase tracking-[0.28em]">
-                  Left Joycon
+              <LeftJoyconPanel>
+                <p className="text-sm font-medium text-slate-950/80">
+                  Placeholder region for future controls and game selection.
                 </p>
-                <div className="rounded-3xl border border-slate-950/15 bg-white/10 px-4 py-6">
-                  <p className="text-sm font-medium text-slate-900/80">
-                    Placeholder region for future controls and game selection.
-                  </p>
-                </div>
-              </section>
+              </LeftJoyconPanel>
             }
             screen={<ScreenRouter />}
             rightJoycon={

@@ -18,7 +18,7 @@ export const ConsoleShell = ({
     >
       <div className="pointer-events-none absolute inset-x-8 top-0 h-24 rounded-b-[2rem] bg-gradient-to-b from-white/10 to-transparent blur-2xl" />
       <div className="grid gap-0 md:grid-cols-[minmax(12rem,15rem)_minmax(0,1fr)_minmax(12rem,15rem)]">
-        <aside className="bg-joycon-left px-6 py-8 text-slate-950">
+        <aside className="bg-console-panel/20 px-3 py-3 md:px-4 md:py-4">
           {leftJoycon}
         </aside>
 
