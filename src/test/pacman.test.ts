@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  advancePacmanFrame,
   advanceGhostsPacman,
   createPacmanState,
   createPositionKeyPacman,
@@ -134,6 +135,18 @@ describe('pacman logic', () => {
     expect(result.collision).toBe('ghost-eaten')
     expect(result.state.score).toBe(210)
     expect(blinky?.position).toEqual(blinky?.spawn)
+  })
+
+  it('advances ghosts and fright timers on frame ticks', () => {
+    const state = {
+      ...createPacmanState(),
+      frightTicks: 3,
+    }
+    const result = advancePacmanFrame(state)
+
+    expect(result.moved).toBe(true)
+    expect(result.state.frightTicks).toBe(2)
+    expect(result.state.turnCount).toBe(1)
   })
 
   it('tracks remaining pellets after collection', () => {

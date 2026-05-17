@@ -42,6 +42,12 @@ export type TurnResultPacman = {
   collision: 'none' | 'ghost-hit' | 'ghost-eaten'
 }
 
+export type FrameResultPacman = {
+  state: PacmanState
+  moved: boolean
+  collision: 'none' | 'ghost-hit' | 'ghost-eaten'
+}
+
 export const PACMAN_LAYOUT = [
   '#############',
   '#o...#.....o#',
@@ -389,6 +395,21 @@ export const runPacmanTurn = (
     ...ghostCollision,
     atePellet: moveResult.atePellet,
     atePowerPellet: moveResult.atePowerPellet,
+  }
+}
+
+export const advancePacmanFrame = (state: PacmanState): FrameResultPacman => {
+  const advancedGhostState = advanceGhostsPacman({
+    ...state,
+    frightTicks: Math.max(0, state.frightTicks - 1),
+    turnCount: state.turnCount + 1,
+  })
+  const ghostCollision = resolveGhostCollisionPacman(advancedGhostState)
+
+  return {
+    state: ghostCollision.state,
+    moved: true,
+    collision: ghostCollision.collision,
   }
 }
 
