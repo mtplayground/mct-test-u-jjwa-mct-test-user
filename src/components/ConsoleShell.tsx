@@ -30,7 +30,7 @@ export const ConsoleShell = ({
           </div>
         </section>
 
-        <aside className="bg-joycon-right px-6 py-8 text-slate-950">
+        <aside className="bg-console-panel/20 px-3 py-3 md:px-4 md:py-4">
           {rightJoycon}
         </aside>
       </div>
