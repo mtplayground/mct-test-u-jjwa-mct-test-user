@@ -3,6 +3,7 @@ export type GameId = '2048' | 'pacman' | 'hexgl'
 export type SessionState = {
   selectedGame: GameId | null
   elapsedSeconds: number
+  elapsedSecondsByGame: Record<GameId, number>
   isEnded: boolean
 }
 
@@ -25,6 +26,11 @@ export type SessionAction =
 export const initialSessionState: SessionState = {
   selectedGame: null,
   elapsedSeconds: 0,
+  elapsedSecondsByGame: {
+    '2048': 0,
+    pacman: 0,
+    hexgl: 0,
+  },
   isEnded: false,
 }
 
@@ -54,6 +60,11 @@ export const sessionReducer = (
       return {
         ...state,
         elapsedSeconds: state.elapsedSeconds + seconds,
+        elapsedSecondsByGame: {
+          ...state.elapsedSecondsByGame,
+          [state.selectedGame]:
+            state.elapsedSecondsByGame[state.selectedGame] + seconds,
+        },
       }
     }
 
