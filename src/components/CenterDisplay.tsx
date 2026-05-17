@@ -26,3 +26,5 @@ export const CenterDisplay = ({ children }: CenterDisplayProps) => {
     </section>
   )
 }
+
+export const ScreenBezel = CenterDisplay
