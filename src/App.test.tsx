@@ -53,6 +53,8 @@ describe('App', () => {
     fireEvent.click(screen.getByRole('button', { name: /cartridge 2048 go/i }))
 
     expect(screen.getByRole('heading', { name: '2048' })).toBeInTheDocument()
+    expect(screen.getByRole('grid', { name: '2048 board' })).toBeInTheDocument()
+    expect(screen.getByLabelText('2048 score')).toHaveTextContent('0')
     expect(endPlayingButton).toBeEnabled()
     expect(
       screen.getByRole('button', { name: /cartridge 2048 on/i })
