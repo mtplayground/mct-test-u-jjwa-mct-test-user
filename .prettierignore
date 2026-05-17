@@ -2,3 +2,5 @@ coverage
 dist
 node_modules
 public/hexgl
+playwright-report
+test-results

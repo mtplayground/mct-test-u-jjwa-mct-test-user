@@ -12,6 +12,7 @@ CSS configured for the arcade theme tokens.
 - `npm run format:check`
 - `npm run preview`
 - `npm run test`
+- `npm run test:e2e`
 
 ## Environment
 
