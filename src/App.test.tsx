@@ -75,6 +75,20 @@ describe('App', () => {
       screen.getByRole('button', { name: /cartridge pac-man on/i })
     ).toHaveAttribute('data-active', 'true')
 
+    fireEvent.click(screen.getByRole('button', { name: /cartridge hexgl go/i }))
+
+    expect(
+      screen.queryByRole('heading', { name: 'Pac-Man' })
+    ).not.toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'HexGL' })).toBeInTheDocument()
+    expect(screen.getByLabelText('HexGL game frame')).toHaveAttribute(
+      'src',
+      '/hexgl/index.html'
+    )
+    expect(
+      screen.getByRole('button', { name: /cartridge hexgl on/i })
+    ).toHaveAttribute('data-active', 'true')
+
     fireEvent.click(endPlayingButton)
 
     expect(
