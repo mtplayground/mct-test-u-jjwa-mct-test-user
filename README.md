@@ -1,6 +1,7 @@
 # ZeroClaw Arcade
 
-Vite + React + TypeScript bootstrap for the arcade session app.
+Vite + React + TypeScript bootstrap for the arcade session app, with Tailwind
+CSS configured for the arcade theme tokens.
 
 ## Scripts
 
