@@ -8,4 +8,7 @@ CSS configured for the arcade theme tokens.
 - `npm install`
 - `npm run dev`
 - `npm run build`
+- `npm run lint`
+- `npm run format:check`
 - `npm run preview`
+- `npm run test`
