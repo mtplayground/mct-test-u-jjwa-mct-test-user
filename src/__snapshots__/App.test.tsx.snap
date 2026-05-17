@@ -119,11 +119,82 @@ exports[`App > matches the desktop shell snapshot 1`] = `
               <div
                 class="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent"
               />
-              <p
-                class="text-sm font-medium text-slate-950/80"
+              <div
+                class="space-y-3"
               >
-                Placeholder region for future controls and game selection.
-              </p>
+                <button
+                  aria-pressed="false"
+                  class="group relative flex w-full items-center justify-between rounded-[1.35rem] border px-4 py-4 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 border-slate-950/12 bg-white/18 hover:border-slate-950/20 hover:bg-white/28"
+                  data-active="false"
+                  type="button"
+                >
+                  <div>
+                    <p
+                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] text-slate-950/50"
+                    >
+                      Cartridge
+                    </p>
+                    <p
+                      class="mt-2 text-lg font-black uppercase tracking-[0.08em] text-slate-950"
+                    >
+                      2048
+                    </p>
+                  </div>
+                  <div
+                    class="grid h-10 w-10 place-items-center rounded-full border text-sm font-black transition border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40"
+                  >
+                    GO
+                  </div>
+                </button>
+                <button
+                  aria-pressed="false"
+                  class="group relative flex w-full items-center justify-between rounded-[1.35rem] border px-4 py-4 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 border-slate-950/12 bg-white/18 hover:border-slate-950/20 hover:bg-white/28"
+                  data-active="false"
+                  type="button"
+                >
+                  <div>
+                    <p
+                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] text-slate-950/50"
+                    >
+                      Cartridge
+                    </p>
+                    <p
+                      class="mt-2 text-lg font-black uppercase tracking-[0.08em] text-slate-950"
+                    >
+                      Pac-Man
+                    </p>
+                  </div>
+                  <div
+                    class="grid h-10 w-10 place-items-center rounded-full border text-sm font-black transition border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40"
+                  >
+                    GO
+                  </div>
+                </button>
+                <button
+                  aria-pressed="false"
+                  class="group relative flex w-full items-center justify-between rounded-[1.35rem] border px-4 py-4 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 border-slate-950/12 bg-white/18 hover:border-slate-950/20 hover:bg-white/28"
+                  data-active="false"
+                  type="button"
+                >
+                  <div>
+                    <p
+                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] text-slate-950/50"
+                    >
+                      Cartridge
+                    </p>
+                    <p
+                      class="mt-2 text-lg font-black uppercase tracking-[0.08em] text-slate-950"
+                    >
+                      HexGL
+                    </p>
+                  </div>
+                  <div
+                    class="grid h-10 w-10 place-items-center rounded-full border text-sm font-black transition border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40"
+                  >
+                    GO
+                  </div>
+                </button>
+              </div>
             </div>
           </section>
         </aside>
@@ -430,11 +501,82 @@ exports[`App > matches the tablet shell snapshot 1`] = `
               <div
                 class="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent"
               />
-              <p
-                class="text-sm font-medium text-slate-950/80"
+              <div
+                class="space-y-3"
               >
-                Placeholder region for future controls and game selection.
-              </p>
+                <button
+                  aria-pressed="false"
+                  class="group relative flex w-full items-center justify-between rounded-[1.35rem] border px-4 py-4 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 border-slate-950/12 bg-white/18 hover:border-slate-950/20 hover:bg-white/28"
+                  data-active="false"
+                  type="button"
+                >
+                  <div>
+                    <p
+                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] text-slate-950/50"
+                    >
+                      Cartridge
+                    </p>
+                    <p
+                      class="mt-2 text-lg font-black uppercase tracking-[0.08em] text-slate-950"
+                    >
+                      2048
+                    </p>
+                  </div>
+                  <div
+                    class="grid h-10 w-10 place-items-center rounded-full border text-sm font-black transition border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40"
+                  >
+                    GO
+                  </div>
+                </button>
+                <button
+                  aria-pressed="false"
+                  class="group relative flex w-full items-center justify-between rounded-[1.35rem] border px-4 py-4 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 border-slate-950/12 bg-white/18 hover:border-slate-950/20 hover:bg-white/28"
+                  data-active="false"
+                  type="button"
+                >
+                  <div>
+                    <p
+                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] text-slate-950/50"
+                    >
+                      Cartridge
+                    </p>
+                    <p
+                      class="mt-2 text-lg font-black uppercase tracking-[0.08em] text-slate-950"
+                    >
+                      Pac-Man
+                    </p>
+                  </div>
+                  <div
+                    class="grid h-10 w-10 place-items-center rounded-full border text-sm font-black transition border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40"
+                  >
+                    GO
+                  </div>
+                </button>
+                <button
+                  aria-pressed="false"
+                  class="group relative flex w-full items-center justify-between rounded-[1.35rem] border px-4 py-4 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 border-slate-950/12 bg-white/18 hover:border-slate-950/20 hover:bg-white/28"
+                  data-active="false"
+                  type="button"
+                >
+                  <div>
+                    <p
+                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] text-slate-950/50"
+                    >
+                      Cartridge
+                    </p>
+                    <p
+                      class="mt-2 text-lg font-black uppercase tracking-[0.08em] text-slate-950"
+                    >
+                      HexGL
+                    </p>
+                  </div>
+                  <div
+                    class="grid h-10 w-10 place-items-center rounded-full border text-sm font-black transition border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40"
+                  >
+                    GO
+                  </div>
+                </button>
+              </div>
             </div>
           </section>
         </aside>
