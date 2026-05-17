@@ -1,5 +1,5 @@
-import { cleanup, render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { afterEach, describe, expect, it } from 'vitest'
 
 import App from './App'
 
@@ -10,8 +10,12 @@ const renderAtWidth = (width: number) => {
   return render(<App />)
 }
 
+afterEach(() => {
+  cleanup()
+})
+
 describe('App', () => {
-  it('renders the routing skeleton and placeholder regions', () => {
+  it('renders the shell with mounted controls and welcome screen', () => {
     renderAtWidth(1280)
 
     expect(screen.getByLabelText('Console body')).toBeInTheDocument()
@@ -20,8 +24,12 @@ describe('App', () => {
     expect(
       screen.getByRole('heading', { name: 'Choose a game to start playing' })
     ).toBeInTheDocument()
-    expect(screen.getByText('Game menu slot')).toBeInTheDocument()
-    expect(screen.getByText('End button slot')).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /cartridge 2048 go/i })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /session control end playing stop/i })
+    ).toBeInTheDocument()
     expect(
       screen.getByText(
         /select a cartridge from the left controller to initialize the arcade session/i
@@ -31,6 +39,53 @@ describe('App', () => {
     expect(screen.getByLabelText('Right joycon region')).toBeInTheDocument()
     expect(screen.getByText('route=welcome')).toBeInTheDocument()
     expect(screen.getByText('VITE_HEXGL_BASE_PATH=/hexgl/')).toBeInTheDocument()
+  })
+
+  it('supports the welcome to goodbye integration flow', () => {
+    renderAtWidth(1280)
+
+    const endPlayingButton = screen.getByRole('button', {
+      name: /end playing/i,
+    })
+
+    expect(endPlayingButton).toBeDisabled()
+
+    fireEvent.click(screen.getByRole('button', { name: /cartridge 2048 go/i }))
+
+    expect(screen.getByRole('heading', { name: '2048' })).toBeInTheDocument()
+    expect(endPlayingButton).toBeEnabled()
+    expect(
+      screen.getByRole('button', { name: /cartridge 2048 on/i })
+    ).toHaveAttribute('data-active', 'true')
+
+    fireEvent.click(
+      screen.getByRole('button', { name: /cartridge pac-man go/i })
+    )
+
+    expect(
+      screen.queryByRole('heading', { name: '2048' })
+    ).not.toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Pac-Man' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /cartridge pac-man on/i })
+    ).toHaveAttribute('data-active', 'true')
+
+    fireEvent.click(endPlayingButton)
+
+    expect(
+      screen.getByRole('heading', { name: 'Thanks for playing!' })
+    ).toBeInTheDocument()
+    expect(screen.getByText(/total play time:/i)).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: 'Play Again' }))
+
+    expect(
+      screen.getByRole('heading', { name: 'Choose a game to start playing' })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: /cartridge pac-man go/i })
+    ).toHaveAttribute('data-active', 'false')
+    expect(screen.getByRole('button', { name: /end playing/i })).toBeDisabled()
   })
 
   it('matches the desktop shell snapshot', () => {
