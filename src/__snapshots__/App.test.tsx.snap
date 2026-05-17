@@ -190,7 +190,7 @@ exports[`App > matches the desktop shell snapshot 1`] = `
                         class="rounded-full border border-white/10 bg-white/5 px-4 py-2"
                       >
                         registeredGames=
-                        0
+                        3
                       </p>
                     </div>
                   </div>
@@ -501,7 +501,7 @@ exports[`App > matches the tablet shell snapshot 1`] = `
                         class="rounded-full border border-white/10 bg-white/5 px-4 py-2"
                       >
                         registeredGames=
-                        0
+                        3
                       </p>
                     </div>
                   </div>
