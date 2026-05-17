@@ -78,6 +78,23 @@ describe('ScreenRouter', () => {
     expect(screen.getByLabelText('2048 score')).toHaveTextContent('0')
   })
 
+  it('renders the registered HexGL component for the hexgl selection', () => {
+    renderRouter(
+      createSessionState({
+        selectedGame: 'hexgl',
+      })
+    )
+
+    expect(screen.getByRole('heading', { name: 'HexGL' })).toBeInTheDocument()
+    expect(screen.getByLabelText('HexGL game frame')).toHaveAttribute(
+      'src',
+      '/hexgl/index.html'
+    )
+    expect(
+      screen.getByText(/focus locks to the race frame for keyboard control/i)
+    ).toBeInTheDocument()
+  })
+
   it('renders the goodbye view when the session has ended', () => {
     renderRouter(
       createSessionState({
