@@ -1,3 +1,5 @@
+import { hexglBasePath } from './config'
+
 function App() {
   return (
     <main className="min-h-screen bg-console-backdrop px-4 py-8 text-slate-50 sm:px-6">
@@ -24,6 +26,9 @@ function App() {
                     The project now has Tailwind, PostCSS, autoprefixer, and a
                     custom arcade theme with joycon, console, and screen bezel
                     tokens.
+                  </p>
+                  <p className="mt-5 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 font-mono text-sm text-slate-200">
+                    VITE_HEXGL_BASE_PATH={hexglBasePath}
                   </p>
                 </div>
               </div>
