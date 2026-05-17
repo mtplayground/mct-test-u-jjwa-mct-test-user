@@ -3,11 +3,13 @@ import { useEffect, useRef, useState } from 'react'
 import {
   createPacmanState,
   createPositionKeyPacman,
+  getGhostModePacman,
   getMazeSizePacman,
   getRemainingPelletCountPacman,
-  movePlayerPacman,
   PACMAN_TILE_SIZE,
+  runPacmanTurn,
   type DirectionPacman,
+  type GhostModePacman,
   type PacmanState,
 } from './pacman'
 
@@ -21,7 +23,8 @@ const keyToDirection: Partial<Record<string, DirectionPacman>> = {
 const drawPacmanScene = (
   canvas: HTMLCanvasElement,
   state: PacmanState,
-  message: string
+  message: string,
+  ghostMode: GhostModePacman
 ) => {
   const context = canvas.getContext('2d')
 
@@ -91,6 +94,28 @@ const drawPacmanScene = (
   )
   context.fill()
 
+  state.ghosts.forEach((ghost) => {
+    const x = ghost.position.column * PACMAN_TILE_SIZE
+    const y = ghost.position.row * PACMAN_TILE_SIZE
+
+    context.fillStyle = ghostMode === 'frightened' ? '#60a5fa' : ghost.color
+    context.beginPath()
+    context.arc(
+      x + PACMAN_TILE_SIZE / 2,
+      y + PACMAN_TILE_SIZE / 2,
+      PACMAN_TILE_SIZE / 2 - 4,
+      Math.PI,
+      0
+    )
+    context.lineTo(x + PACMAN_TILE_SIZE - 4, y + PACMAN_TILE_SIZE - 4)
+    context.lineTo(x + PACMAN_TILE_SIZE - 10, y + PACMAN_TILE_SIZE - 10)
+    context.lineTo(x + PACMAN_TILE_SIZE / 2, y + PACMAN_TILE_SIZE - 4)
+    context.lineTo(x + 10, y + PACMAN_TILE_SIZE - 10)
+    context.lineTo(x + 4, y + PACMAN_TILE_SIZE - 4)
+    context.closePath()
+    context.fill()
+  })
+
   context.strokeStyle = 'rgba(148, 163, 184, 0.18)'
   context.strokeRect(0.5, 0.5, boardWidth - 1, boardHeight - 1)
 
@@ -117,14 +142,18 @@ export const GamePacman = () => {
       event.preventDefault()
 
       setGameState((currentState) => {
-        const moveResult = movePlayerPacman(currentState, direction)
+        const moveResult = runPacmanTurn(currentState, direction)
 
         if (!moveResult.moved) {
           setStatusMessage('Wall ahead. Pick another route.')
           return currentState
         }
 
-        if (moveResult.atePowerPellet) {
+        if (moveResult.collision === 'ghost-hit') {
+          setStatusMessage('Ghost collision. Life lost.')
+        } else if (moveResult.collision === 'ghost-eaten') {
+          setStatusMessage('Ghost eaten during fright mode.')
+        } else if (moveResult.atePowerPellet) {
           setStatusMessage('Power pellet collected.')
         } else if (moveResult.atePellet) {
           setStatusMessage('Pellet cleared.')
@@ -150,7 +179,12 @@ export const GamePacman = () => {
       return
     }
 
-    drawPacmanScene(canvas, gameState, statusMessage)
+    drawPacmanScene(
+      canvas,
+      gameState,
+      statusMessage,
+      getGhostModePacman(gameState)
+    )
   }, [gameState, statusMessage])
 
   const resetMaze = () => {
@@ -159,6 +193,7 @@ export const GamePacman = () => {
   }
 
   const { rows, columns } = getMazeSizePacman(gameState.maze)
+  const ghostMode = getGhostModePacman(gameState)
 
   return (
     <section className="flex h-full min-h-full items-center justify-center p-3 sm:p-5">
@@ -199,6 +234,17 @@ export const GamePacman = () => {
                 {getRemainingPelletCountPacman(gameState)}
               </p>
             </div>
+            <div className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3">
+              <p className="font-mono text-[0.68rem] uppercase tracking-[0.28em] text-slate-400">
+                Lives
+              </p>
+              <p
+                aria-label="Pac-Man lives"
+                className="mt-1 font-mono text-2xl font-semibold text-cyan-50"
+              >
+                {gameState.lives}
+              </p>
+            </div>
             <button
               className="rounded-2xl border border-cyan-300/25 bg-cyan-300/10 px-4 py-3 font-mono text-sm font-semibold uppercase tracking-[0.16em] text-cyan-100 transition hover:border-cyan-200/45 hover:bg-cyan-200/15"
               onClick={resetMaze}
@@ -214,7 +260,7 @@ export const GamePacman = () => {
             {statusMessage}
           </p>
           <p className="font-mono text-xs uppercase tracking-[0.24em] text-slate-500">
-            Live
+            {ghostMode === 'frightened' ? 'Fright' : ghostMode}
           </p>
         </div>
 
