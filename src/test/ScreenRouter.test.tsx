@@ -58,9 +58,10 @@ describe('ScreenRouter', () => {
     expect(screen.getByRole('heading', { name: 'Pac-Man' })).toBeInTheDocument()
     expect(
       screen.getByText(
-        /clear the maze, dodge ghosts, and keep the pellet run alive/i
+        /navigate the maze with the arrow keys, clear pellets, and avoid slamming into the walls/i
       )
     ).toBeInTheDocument()
+    expect(screen.getByLabelText('Pac-Man maze')).toBeInTheDocument()
   })
 
   it('renders the registered 2048 component for the 2048 selection', () => {
