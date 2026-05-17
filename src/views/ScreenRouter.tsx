@@ -1,5 +1,5 @@
 import { useSession } from '../context/useSession'
-import { gameRegistryById } from '../games'
+import { Game2048Screen, HexglScreen, PacmanScreen } from '../games/screens'
 import { GoodbyeView } from './GoodbyeView'
 import { WelcomeView } from './WelcomeView'
 
@@ -17,7 +17,16 @@ export const ScreenRouter = () => {
     return <WelcomeView />
   }
 
-  const ActiveGameScreen = gameRegistryById[activeGame].component
-
-  return <ActiveGameScreen key={activeGame} />
+  switch (activeGame) {
+    case '2048':
+      return <Game2048Screen key="2048" />
+    case 'pacman':
+      return <PacmanScreen key="pacman" />
+    case 'hexgl':
+      return <HexglScreen key="hexgl" />
+    default: {
+      const exhaustiveCheck: never = activeGame
+      return exhaustiveCheck
+    }
+  }
 }

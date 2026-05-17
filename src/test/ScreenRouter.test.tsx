@@ -63,6 +63,18 @@ describe('ScreenRouter', () => {
     ).toBeInTheDocument()
   })
 
+  it('renders the registered 2048 component for the 2048 selection', () => {
+    renderRouter(
+      createSessionState({
+        selectedGame: '2048',
+      })
+    )
+
+    expect(screen.getByRole('heading', { name: '2048' })).toBeInTheDocument()
+    expect(screen.getByRole('grid', { name: '2048 board' })).toBeInTheDocument()
+    expect(screen.getByLabelText('2048 score')).toHaveTextContent('0')
+  })
+
   it('renders the goodbye view when the session has ended', () => {
     renderRouter(
       createSessionState({
