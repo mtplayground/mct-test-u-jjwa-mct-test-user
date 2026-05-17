@@ -1,4 +1,5 @@
 import { Game2048 } from './Game2048'
+import { GamePacman } from './GamePacman'
 
 type GameScreenProps = {
   title: string
@@ -28,12 +29,7 @@ export const Game2048Screen = () => {
 }
 
 export const PacmanScreen = () => {
-  return (
-    <GameScreenPlaceholder
-      subtitle="Clear the maze, dodge ghosts, and keep the pellet run alive."
-      title="Pac-Man"
-    />
-  )
+  return <GamePacman />
 }
 
 export const HexglScreen = () => {
