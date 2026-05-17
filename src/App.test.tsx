@@ -18,13 +18,13 @@ describe('App', () => {
     expect(screen.getByLabelText('Center display bezel')).toBeInTheDocument()
     expect(screen.getByLabelText('Inner display region')).toBeInTheDocument()
     expect(
-      screen.getByRole('heading', { name: 'Console layout scaffolded.' })
+      screen.getByRole('heading', { name: 'Choose a game to start playing' })
     ).toBeInTheDocument()
     expect(screen.getByText('Game menu slot')).toBeInTheDocument()
     expect(screen.getByText('End button slot')).toBeInTheDocument()
     expect(
       screen.getByText(
-        /directory structure for components, games, context, and views/i
+        /select a cartridge from the left controller to initialize the arcade session/i
       )
     ).toBeInTheDocument()
     expect(screen.getByLabelText('Left joycon region')).toBeInTheDocument()
