@@ -11,6 +11,7 @@ describe('App', () => {
     expect(
       screen.getByRole('heading', { name: 'Console layout scaffolded.' })
     ).toBeInTheDocument()
+    expect(screen.getByText('Game menu slot')).toBeInTheDocument()
     expect(
       screen.getByText(
         /directory structure for components, games, context, and views/i
