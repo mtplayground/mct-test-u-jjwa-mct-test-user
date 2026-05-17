@@ -1,3 +1,4 @@
+import { ArcadeRoomBackground } from './components/ArcadeRoomBackground'
 import { ConsoleShell } from './components/ConsoleShell'
 import { RouteProvider } from './context/RouteContext'
 import { ScreenRouter } from './views/ScreenRouter'
@@ -5,8 +6,9 @@ import { ScreenRouter } from './views/ScreenRouter'
 function App() {
   return (
     <RouteProvider>
-      <main className="min-h-screen bg-console-backdrop px-4 py-8 text-slate-50 sm:px-6">
-        <div className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-6xl items-center justify-center">
+      <main className="relative isolate min-h-screen overflow-hidden bg-console-backdrop px-4 py-6 text-slate-50 sm:px-6 sm:py-8">
+        <ArcadeRoomBackground />
+        <div className="relative mx-auto flex min-h-[calc(100vh-3rem)] max-w-[88rem] items-center justify-center md:min-h-[calc(100vh-4rem)]">
           <ConsoleShell
             leftJoycon={
               <section aria-label="Left joycon region" className="space-y-4">

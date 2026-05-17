@@ -7,6 +7,7 @@ describe('App', () => {
   it('renders the routing skeleton and placeholder regions', () => {
     render(<App />)
 
+    expect(screen.getByLabelText('Console body')).toBeInTheDocument()
     expect(
       screen.getByRole('heading', { name: 'Console layout scaffolded.' })
     ).toBeInTheDocument()
