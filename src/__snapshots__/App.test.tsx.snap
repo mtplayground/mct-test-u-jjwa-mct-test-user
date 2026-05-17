@@ -29,27 +29,36 @@ exports[`App > matches the desktop shell snapshot 1`] = `
   >
     <section
       aria-label="Console body"
-      class="relative w-full max-w-[74rem] overflow-hidden rounded-[2.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(51,65,85,0.96)_0%,rgba(30,41,59,0.98)_56%,rgba(15,23,42,1)_100%)] shadow-[0_35px_120px_rgba(2,6,23,0.65)] ring-1 ring-white/5 md:min-h-[38rem] md:rounded-[3rem]"
+      class="relative w-full max-w-[74rem] overflow-hidden rounded-[2.35rem] border border-white/10 bg-[linear-gradient(180deg,rgba(71,85,105,0.96)_0%,rgba(30,41,59,0.99)_52%,rgba(15,23,42,1)_100%)] shadow-[0_35px_120px_rgba(2,6,23,0.65)] ring-1 ring-white/5 md:min-h-[38rem] md:rounded-[3rem]"
       data-layout="desktop"
     >
       <div
         class="pointer-events-none absolute inset-x-8 top-0 h-24 rounded-b-[2rem] bg-gradient-to-b from-white/10 to-transparent blur-2xl"
       />
       <div
+        class="pointer-events-none absolute inset-x-10 bottom-0 h-20 bg-gradient-to-t from-black/20 to-transparent blur-2xl"
+      />
+      <div
         class="grid gap-0 grid-cols-[minmax(12rem,15rem)_minmax(0,1fr)_minmax(12rem,15rem)]"
       >
         <aside
-          class="bg-console-panel/20 px-3 py-3 md:px-4 md:py-4 "
+          class="bg-console-panel/20 px-2.5 py-2.5 sm:px-3 sm:py-3 md:px-4 md:py-4 "
         >
           <section
             aria-label="Left joycon region"
-            class="relative flex h-full min-h-[18rem] flex-col overflow-hidden rounded-[2rem] border border-cyan-200/35 bg-[linear-gradient(180deg,rgba(34,211,238,0.98)_0%,rgba(14,165,233,0.96)_48%,rgba(8,145,178,0.98)_100%)] px-5 py-6 text-slate-950 shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_0_-16px_30px_rgba(8,47,73,0.22)]"
+            class="relative flex h-full min-h-[16rem] flex-col overflow-hidden rounded-[2rem] border border-cyan-100/35 bg-[linear-gradient(180deg,rgba(103,232,249,0.98)_0%,rgba(34,211,238,0.98)_18%,rgba(14,165,233,0.97)_52%,rgba(8,145,178,0.99)_100%)] px-4 py-5 text-slate-950 shadow-[inset_0_1px_0_rgba(255,255,255,0.28),inset_0_-18px_34px_rgba(8,47,73,0.26),0_20px_36px_rgba(8,47,73,0.22)] transition-transform duration-300 sm:px-5 sm:py-6 xl:min-h-[18rem]"
           >
             <div
-              class="pointer-events-none absolute inset-y-6 left-3 w-px bg-white/20"
+              class="pointer-events-none absolute inset-x-5 top-0 h-16 rounded-b-[1.75rem] bg-gradient-to-b from-white/25 to-transparent blur-xl"
             />
             <div
-              class="pointer-events-none absolute right-4 top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl"
+              class="pointer-events-none absolute inset-y-5 left-3 w-px bg-white/20 sm:inset-y-6"
+            />
+            <div
+              class="pointer-events-none absolute right-4 top-10 h-28 w-28 rounded-full bg-white/14 blur-2xl"
+            />
+            <div
+              class="pointer-events-none absolute bottom-10 left-0 h-32 w-24 rounded-r-full bg-slate-950/8 blur-2xl"
             />
             <div
               class="relative flex items-start justify-between"
@@ -71,33 +80,33 @@ exports[`App > matches the desktop shell snapshot 1`] = `
               />
             </div>
             <div
-              class="relative mt-6 flex items-center justify-center"
+              class="relative mt-5 flex items-center justify-center sm:mt-6"
             >
               <div
                 class="absolute h-28 w-28 rounded-full bg-slate-950/10 blur-xl"
               />
               <div
-                class="relative grid h-24 w-24 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.32),rgba(15,23,42,0.22)_55%,rgba(15,23,42,0.45)_100%)] shadow-[inset_0_3px_10px_rgba(255,255,255,0.2),0_18px_28px_rgba(14,116,144,0.25)]"
+                class="relative grid h-24 w-24 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.38),rgba(15,23,42,0.22)_52%,rgba(15,23,42,0.5)_100%)] shadow-[inset_0_3px_12px_rgba(255,255,255,0.2),0_18px_28px_rgba(14,116,144,0.25)]"
               >
                 <div
-                  class="h-12 w-12 rounded-full border border-slate-950/25 bg-slate-900/70 shadow-[inset_0_2px_8px_rgba(255,255,255,0.12)]"
+                  class="h-12 w-12 rounded-full border border-slate-950/25 bg-slate-900/74 shadow-[inset_0_2px_8px_rgba(255,255,255,0.14),0_0_0_1px_rgba(255,255,255,0.04)]"
                 />
               </div>
             </div>
             <div
-              class="mt-8 grid place-items-center"
+              class="mt-7 grid place-items-center sm:mt-8"
             >
               <div
                 class="relative h-24 w-24"
               >
                 <div
-                  class="absolute left-1/2 top-0 h-full w-7 -translate-x-1/2 rounded-2xl border border-slate-950/15 bg-slate-950/18 shadow-[inset_0_1px_4px_rgba(255,255,255,0.15)]"
+                  class="absolute left-1/2 top-0 h-full w-7 -translate-x-1/2 rounded-2xl border border-slate-950/15 bg-slate-950/20 shadow-[inset_0_1px_4px_rgba(255,255,255,0.16),0_10px_22px_rgba(8,47,73,0.12)]"
                 />
                 <div
-                  class="absolute left-0 top-1/2 h-7 w-full -translate-y-1/2 rounded-2xl border border-slate-950/15 bg-slate-950/18 shadow-[inset_0_1px_4px_rgba(255,255,255,0.15)]"
+                  class="absolute left-0 top-1/2 h-7 w-full -translate-y-1/2 rounded-2xl border border-slate-950/15 bg-slate-950/20 shadow-[inset_0_1px_4px_rgba(255,255,255,0.16),0_10px_22px_rgba(8,47,73,0.12)]"
                 />
                 <div
-                  class="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-slate-950/30 shadow-[0_0_12px_rgba(15,23,42,0.16)]"
+                  class="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-slate-950/34 shadow-[0_0_14px_rgba(15,23,42,0.18)]"
                 />
                 <div
                   class="absolute left-1/2 top-2 h-3 w-3 -translate-x-1/2 rounded-full bg-white/45"
@@ -114,82 +123,100 @@ exports[`App > matches the desktop shell snapshot 1`] = `
               </div>
             </div>
             <div
-              class="relative mt-8 rounded-[1.75rem] border border-slate-950/15 bg-slate-950/12 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]"
+              class="relative mt-6 rounded-[1.75rem] border border-slate-950/15 bg-[linear-gradient(180deg,rgba(15,23,42,0.16)_0%,rgba(15,23,42,0.12)_100%)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_16px_28px_rgba(8,47,73,0.12)] sm:mt-8 sm:p-4"
             >
               <div
                 class="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent"
               />
               <div
-                class="space-y-3"
+                class="space-y-3 sm:space-y-3.5"
               >
                 <button
                   aria-pressed="false"
-                  class="group relative flex w-full items-center justify-between rounded-[1.35rem] border px-4 py-4 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 border-slate-950/12 bg-white/18 hover:border-slate-950/20 hover:bg-white/28"
+                  class="group relative flex w-full items-center justify-between overflow-hidden rounded-[1.45rem] border px-4 py-4 text-left transition-[transform,border-color,background-color,box-shadow] duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 active:translate-y-[1px] sm:px-4 sm:py-4 md:px-5 md:py-[1.05rem] border-slate-950/12 bg-[linear-gradient(135deg,rgba(255,255,255,0.22)_0%,rgba(255,255,255,0.14)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] hover:-translate-y-0.5 hover:border-slate-950/20 hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.32)_0%,rgba(255,255,255,0.18)_100%)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_14px_24px_rgba(8,47,73,0.12)]"
                   data-active="false"
                   type="button"
                 >
+                  <div
+                    class="pointer-events-none absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent transition-opacity duration-300 opacity-60"
+                  />
+                  <div
+                    class="pointer-events-none absolute inset-y-3 right-3 w-20 rounded-full blur-2xl transition duration-300 bg-white/0 opacity-0 group-hover:bg-white/20 group-hover:opacity-100"
+                  />
                   <div>
                     <p
-                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] text-slate-950/50"
+                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] transition-colors duration-300 text-slate-950/50"
                     >
                       Cartridge
                     </p>
                     <p
-                      class="mt-2 text-lg font-black uppercase tracking-[0.08em] text-slate-950"
+                      class="mt-2 text-base font-black uppercase tracking-[0.1em] transition-colors duration-300 sm:text-lg text-slate-950/90"
                     >
                       2048
                     </p>
                   </div>
                   <div
-                    class="grid h-10 w-10 place-items-center rounded-full border text-sm font-black transition border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40"
+                    class="relative grid h-10 w-10 shrink-0 place-items-center rounded-full border text-sm font-black transition-all duration-300 sm:h-11 sm:w-11 border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40 group-hover:text-slate-950/85"
                   >
                     GO
                   </div>
                 </button>
                 <button
                   aria-pressed="false"
-                  class="group relative flex w-full items-center justify-between rounded-[1.35rem] border px-4 py-4 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 border-slate-950/12 bg-white/18 hover:border-slate-950/20 hover:bg-white/28"
+                  class="group relative flex w-full items-center justify-between overflow-hidden rounded-[1.45rem] border px-4 py-4 text-left transition-[transform,border-color,background-color,box-shadow] duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 active:translate-y-[1px] sm:px-4 sm:py-4 md:px-5 md:py-[1.05rem] border-slate-950/12 bg-[linear-gradient(135deg,rgba(255,255,255,0.22)_0%,rgba(255,255,255,0.14)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] hover:-translate-y-0.5 hover:border-slate-950/20 hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.32)_0%,rgba(255,255,255,0.18)_100%)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_14px_24px_rgba(8,47,73,0.12)]"
                   data-active="false"
                   type="button"
                 >
+                  <div
+                    class="pointer-events-none absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent transition-opacity duration-300 opacity-60"
+                  />
+                  <div
+                    class="pointer-events-none absolute inset-y-3 right-3 w-20 rounded-full blur-2xl transition duration-300 bg-white/0 opacity-0 group-hover:bg-white/20 group-hover:opacity-100"
+                  />
                   <div>
                     <p
-                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] text-slate-950/50"
+                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] transition-colors duration-300 text-slate-950/50"
                     >
                       Cartridge
                     </p>
                     <p
-                      class="mt-2 text-lg font-black uppercase tracking-[0.08em] text-slate-950"
+                      class="mt-2 text-base font-black uppercase tracking-[0.1em] transition-colors duration-300 sm:text-lg text-slate-950/90"
                     >
                       Pac-Man
                     </p>
                   </div>
                   <div
-                    class="grid h-10 w-10 place-items-center rounded-full border text-sm font-black transition border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40"
+                    class="relative grid h-10 w-10 shrink-0 place-items-center rounded-full border text-sm font-black transition-all duration-300 sm:h-11 sm:w-11 border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40 group-hover:text-slate-950/85"
                   >
                     GO
                   </div>
                 </button>
                 <button
                   aria-pressed="false"
-                  class="group relative flex w-full items-center justify-between rounded-[1.35rem] border px-4 py-4 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 border-slate-950/12 bg-white/18 hover:border-slate-950/20 hover:bg-white/28"
+                  class="group relative flex w-full items-center justify-between overflow-hidden rounded-[1.45rem] border px-4 py-4 text-left transition-[transform,border-color,background-color,box-shadow] duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 active:translate-y-[1px] sm:px-4 sm:py-4 md:px-5 md:py-[1.05rem] border-slate-950/12 bg-[linear-gradient(135deg,rgba(255,255,255,0.22)_0%,rgba(255,255,255,0.14)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] hover:-translate-y-0.5 hover:border-slate-950/20 hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.32)_0%,rgba(255,255,255,0.18)_100%)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_14px_24px_rgba(8,47,73,0.12)]"
                   data-active="false"
                   type="button"
                 >
+                  <div
+                    class="pointer-events-none absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent transition-opacity duration-300 opacity-60"
+                  />
+                  <div
+                    class="pointer-events-none absolute inset-y-3 right-3 w-20 rounded-full blur-2xl transition duration-300 bg-white/0 opacity-0 group-hover:bg-white/20 group-hover:opacity-100"
+                  />
                   <div>
                     <p
-                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] text-slate-950/50"
+                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] transition-colors duration-300 text-slate-950/50"
                     >
                       Cartridge
                     </p>
                     <p
-                      class="mt-2 text-lg font-black uppercase tracking-[0.08em] text-slate-950"
+                      class="mt-2 text-base font-black uppercase tracking-[0.1em] transition-colors duration-300 sm:text-lg text-slate-950/90"
                     >
                       HexGL
                     </p>
                   </div>
                   <div
-                    class="grid h-10 w-10 place-items-center rounded-full border text-sm font-black transition border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40"
+                    class="relative grid h-10 w-10 shrink-0 place-items-center rounded-full border text-sm font-black transition-all duration-300 sm:h-11 sm:w-11 border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40 group-hover:text-slate-950/85"
                   >
                     GO
                   </div>
@@ -199,7 +226,7 @@ exports[`App > matches the desktop shell snapshot 1`] = `
           </section>
         </aside>
         <section
-          class="bg-console-panel/95 px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
+          class="bg-console-panel/95 px-3 py-5 sm:px-5 sm:py-7 md:px-8 md:py-10"
         >
           <section
             aria-label="Center display bezel"
@@ -271,17 +298,23 @@ exports[`App > matches the desktop shell snapshot 1`] = `
           </section>
         </section>
         <aside
-          class="bg-console-panel/20 px-3 py-3 md:px-4 md:py-4 "
+          class="bg-console-panel/20 px-2.5 py-2.5 sm:px-3 sm:py-3 md:px-4 md:py-4 "
         >
           <section
             aria-label="Right joycon region"
-            class="relative flex h-full min-h-[18rem] flex-col overflow-hidden rounded-[2rem] border border-rose-200/35 bg-[linear-gradient(180deg,rgba(255,107,107,0.98)_0%,rgba(248,113,113,0.96)_46%,rgba(220,38,38,0.98)_100%)] px-5 py-6 text-slate-950 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),inset_0_-16px_32px_rgba(127,29,29,0.26)]"
+            class="relative flex h-full min-h-[16rem] flex-col overflow-hidden rounded-[2rem] border border-rose-100/35 bg-[linear-gradient(180deg,rgba(254,202,202,0.5)_0%,rgba(251,146,146,0.98)_12%,rgba(248,113,113,0.97)_44%,rgba(220,38,38,0.99)_100%)] px-4 py-5 text-slate-950 shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_0_-18px_34px_rgba(127,29,29,0.28),0_20px_36px_rgba(127,29,29,0.2)] transition-transform duration-300 sm:px-5 sm:py-6 xl:min-h-[18rem]"
           >
             <div
-              class="pointer-events-none absolute inset-y-6 right-3 w-px bg-white/20"
+              class="pointer-events-none absolute inset-x-5 top-0 h-16 rounded-b-[1.75rem] bg-gradient-to-b from-white/25 to-transparent blur-xl"
             />
             <div
-              class="pointer-events-none absolute left-4 top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl"
+              class="pointer-events-none absolute inset-y-5 right-3 w-px bg-white/20 sm:inset-y-6"
+            />
+            <div
+              class="pointer-events-none absolute left-4 top-10 h-28 w-28 rounded-full bg-white/14 blur-2xl"
+            />
+            <div
+              class="pointer-events-none absolute bottom-10 right-0 h-32 w-24 rounded-l-full bg-slate-950/8 blur-2xl"
             />
             <div
               class="relative flex items-start justify-between gap-4 text-right"
@@ -305,28 +338,28 @@ exports[`App > matches the desktop shell snapshot 1`] = `
               </div>
             </div>
             <div
-              class="relative mt-6 flex items-center justify-center"
+              class="relative mt-5 flex items-center justify-center sm:mt-6"
             >
               <div
                 class="relative h-24 w-24"
               >
                 <div
-                  class="absolute top-0 left-1/2 -translate-x-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.4),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.38)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
+                  class="absolute top-0 left-1/2 -translate-x-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.44),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.4)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
                 >
                   X
                 </div>
                 <div
-                  class="absolute top-1/2 right-0 -translate-y-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.4),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.38)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
+                  class="absolute top-1/2 right-0 -translate-y-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.44),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.4)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
                 >
                   A
                 </div>
                 <div
-                  class="absolute bottom-0 left-1/2 -translate-x-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.4),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.38)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
+                  class="absolute bottom-0 left-1/2 -translate-x-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.44),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.4)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
                 >
                   B
                 </div>
                 <div
-                  class="absolute top-1/2 left-0 -translate-y-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.4),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.38)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
+                  class="absolute top-1/2 left-0 -translate-y-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.44),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.4)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
                 >
                   Y
                 </div>
@@ -336,21 +369,21 @@ exports[`App > matches the desktop shell snapshot 1`] = `
               </div>
             </div>
             <div
-              class="relative mt-8 flex items-center justify-center"
+              class="relative mt-7 flex items-center justify-center sm:mt-8"
             >
               <div
                 class="absolute h-28 w-28 rounded-full bg-slate-950/10 blur-xl"
               />
               <div
-                class="relative grid h-24 w-24 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.3),rgba(15,23,42,0.22)_55%,rgba(15,23,42,0.46)_100%)] shadow-[inset_0_3px_10px_rgba(255,255,255,0.18),0_18px_28px_rgba(127,29,29,0.25)]"
+                class="relative grid h-24 w-24 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.34),rgba(15,23,42,0.22)_55%,rgba(15,23,42,0.48)_100%)] shadow-[inset_0_3px_10px_rgba(255,255,255,0.18),0_18px_28px_rgba(127,29,29,0.25)]"
               >
                 <div
-                  class="h-12 w-12 rounded-full border border-slate-950/25 bg-slate-900/72 shadow-[inset_0_2px_8px_rgba(255,255,255,0.12)]"
+                  class="h-12 w-12 rounded-full border border-slate-950/25 bg-slate-900/74 shadow-[inset_0_2px_8px_rgba(255,255,255,0.12),0_0_0_1px_rgba(255,255,255,0.04)]"
                 />
               </div>
             </div>
             <div
-              class="mt-8 flex justify-end gap-3 pr-1"
+              class="mt-7 flex justify-end gap-3 pr-1 sm:mt-8"
             >
               <div
                 class="h-3 w-3 rounded-full bg-white/30"
@@ -363,19 +396,22 @@ exports[`App > matches the desktop shell snapshot 1`] = `
               />
             </div>
             <div
-              class="relative mt-8 rounded-[1.75rem] border border-slate-950/15 bg-slate-950/12 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]"
+              class="relative mt-6 rounded-[1.75rem] border border-slate-950/15 bg-[linear-gradient(180deg,rgba(15,23,42,0.16)_0%,rgba(15,23,42,0.12)_100%)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_16px_28px_rgba(127,29,29,0.12)] sm:mt-8 sm:p-4"
             >
               <div
                 class="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent"
               />
               <button
                 aria-disabled="true"
-                class="group relative w-full overflow-hidden rounded-[1.6rem] border px-5 py-5 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/45 focus-visible:ring-offset-2 focus-visible:ring-offset-rose-300 cursor-not-allowed border-slate-950/10 bg-white/15 text-slate-950/45"
+                class="group relative w-full overflow-hidden rounded-[1.7rem] border px-4 py-4 text-left transition-[transform,border-color,background-color,box-shadow] duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/45 focus-visible:ring-offset-2 focus-visible:ring-offset-rose-300 sm:px-5 sm:py-5 cursor-not-allowed border-slate-950/10 bg-white/15 text-slate-950/45"
                 disabled=""
                 type="button"
               >
                 <div
                   class="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-white/55 to-transparent"
+                />
+                <div
+                  class="pointer-events-none absolute inset-y-3 right-3 w-24 rounded-full blur-2xl transition duration-300 bg-transparent opacity-0"
                 />
                 <div
                   class="flex items-center justify-between gap-4"
@@ -393,7 +429,7 @@ exports[`App > matches the desktop shell snapshot 1`] = `
                     </p>
                   </div>
                   <div
-                    class="grid h-12 w-12 place-items-center rounded-full border text-xs font-black uppercase transition border-slate-950/10 bg-white/10 text-current/50"
+                    class="grid h-11 w-11 shrink-0 place-items-center rounded-full border text-[0.68rem] font-black uppercase tracking-[0.16em] transition-all duration-300 sm:h-12 sm:w-12 border-slate-950/10 bg-white/10 text-current/50"
                   >
                     Stop
                   </div>
@@ -437,27 +473,36 @@ exports[`App > matches the tablet shell snapshot 1`] = `
   >
     <section
       aria-label="Console body"
-      class="relative w-full max-w-[74rem] overflow-hidden rounded-[2.5rem] border border-white/10 bg-[linear-gradient(180deg,rgba(51,65,85,0.96)_0%,rgba(30,41,59,0.98)_56%,rgba(15,23,42,1)_100%)] shadow-[0_35px_120px_rgba(2,6,23,0.65)] ring-1 ring-white/5 md:min-h-[38rem] md:rounded-[3rem]"
+      class="relative w-full max-w-[74rem] overflow-hidden rounded-[2.35rem] border border-white/10 bg-[linear-gradient(180deg,rgba(71,85,105,0.96)_0%,rgba(30,41,59,0.99)_52%,rgba(15,23,42,1)_100%)] shadow-[0_35px_120px_rgba(2,6,23,0.65)] ring-1 ring-white/5 md:min-h-[38rem] md:rounded-[3rem]"
       data-layout="tablet"
     >
       <div
         class="pointer-events-none absolute inset-x-8 top-0 h-24 rounded-b-[2rem] bg-gradient-to-b from-white/10 to-transparent blur-2xl"
       />
       <div
+        class="pointer-events-none absolute inset-x-10 bottom-0 h-20 bg-gradient-to-t from-black/20 to-transparent blur-2xl"
+      />
+      <div
         class="grid gap-0 grid-cols-1"
       >
         <aside
-          class="bg-console-panel/20 px-3 py-3 md:px-4 md:py-4 border-b border-white/6"
+          class="bg-console-panel/20 px-2.5 py-2.5 sm:px-3 sm:py-3 md:px-4 md:py-4 border-b border-white/6"
         >
           <section
             aria-label="Left joycon region"
-            class="relative flex h-full min-h-[18rem] flex-col overflow-hidden rounded-[2rem] border border-cyan-200/35 bg-[linear-gradient(180deg,rgba(34,211,238,0.98)_0%,rgba(14,165,233,0.96)_48%,rgba(8,145,178,0.98)_100%)] px-5 py-6 text-slate-950 shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_0_-16px_30px_rgba(8,47,73,0.22)]"
+            class="relative flex h-full min-h-[16rem] flex-col overflow-hidden rounded-[2rem] border border-cyan-100/35 bg-[linear-gradient(180deg,rgba(103,232,249,0.98)_0%,rgba(34,211,238,0.98)_18%,rgba(14,165,233,0.97)_52%,rgba(8,145,178,0.99)_100%)] px-4 py-5 text-slate-950 shadow-[inset_0_1px_0_rgba(255,255,255,0.28),inset_0_-18px_34px_rgba(8,47,73,0.26),0_20px_36px_rgba(8,47,73,0.22)] transition-transform duration-300 sm:px-5 sm:py-6 xl:min-h-[18rem]"
           >
             <div
-              class="pointer-events-none absolute inset-y-6 left-3 w-px bg-white/20"
+              class="pointer-events-none absolute inset-x-5 top-0 h-16 rounded-b-[1.75rem] bg-gradient-to-b from-white/25 to-transparent blur-xl"
             />
             <div
-              class="pointer-events-none absolute right-4 top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl"
+              class="pointer-events-none absolute inset-y-5 left-3 w-px bg-white/20 sm:inset-y-6"
+            />
+            <div
+              class="pointer-events-none absolute right-4 top-10 h-28 w-28 rounded-full bg-white/14 blur-2xl"
+            />
+            <div
+              class="pointer-events-none absolute bottom-10 left-0 h-32 w-24 rounded-r-full bg-slate-950/8 blur-2xl"
             />
             <div
               class="relative flex items-start justify-between"
@@ -479,33 +524,33 @@ exports[`App > matches the tablet shell snapshot 1`] = `
               />
             </div>
             <div
-              class="relative mt-6 flex items-center justify-center"
+              class="relative mt-5 flex items-center justify-center sm:mt-6"
             >
               <div
                 class="absolute h-28 w-28 rounded-full bg-slate-950/10 blur-xl"
               />
               <div
-                class="relative grid h-24 w-24 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.32),rgba(15,23,42,0.22)_55%,rgba(15,23,42,0.45)_100%)] shadow-[inset_0_3px_10px_rgba(255,255,255,0.2),0_18px_28px_rgba(14,116,144,0.25)]"
+                class="relative grid h-24 w-24 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.38),rgba(15,23,42,0.22)_52%,rgba(15,23,42,0.5)_100%)] shadow-[inset_0_3px_12px_rgba(255,255,255,0.2),0_18px_28px_rgba(14,116,144,0.25)]"
               >
                 <div
-                  class="h-12 w-12 rounded-full border border-slate-950/25 bg-slate-900/70 shadow-[inset_0_2px_8px_rgba(255,255,255,0.12)]"
+                  class="h-12 w-12 rounded-full border border-slate-950/25 bg-slate-900/74 shadow-[inset_0_2px_8px_rgba(255,255,255,0.14),0_0_0_1px_rgba(255,255,255,0.04)]"
                 />
               </div>
             </div>
             <div
-              class="mt-8 grid place-items-center"
+              class="mt-7 grid place-items-center sm:mt-8"
             >
               <div
                 class="relative h-24 w-24"
               >
                 <div
-                  class="absolute left-1/2 top-0 h-full w-7 -translate-x-1/2 rounded-2xl border border-slate-950/15 bg-slate-950/18 shadow-[inset_0_1px_4px_rgba(255,255,255,0.15)]"
+                  class="absolute left-1/2 top-0 h-full w-7 -translate-x-1/2 rounded-2xl border border-slate-950/15 bg-slate-950/20 shadow-[inset_0_1px_4px_rgba(255,255,255,0.16),0_10px_22px_rgba(8,47,73,0.12)]"
                 />
                 <div
-                  class="absolute left-0 top-1/2 h-7 w-full -translate-y-1/2 rounded-2xl border border-slate-950/15 bg-slate-950/18 shadow-[inset_0_1px_4px_rgba(255,255,255,0.15)]"
+                  class="absolute left-0 top-1/2 h-7 w-full -translate-y-1/2 rounded-2xl border border-slate-950/15 bg-slate-950/20 shadow-[inset_0_1px_4px_rgba(255,255,255,0.16),0_10px_22px_rgba(8,47,73,0.12)]"
                 />
                 <div
-                  class="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-slate-950/30 shadow-[0_0_12px_rgba(15,23,42,0.16)]"
+                  class="absolute left-1/2 top-1/2 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-slate-950/34 shadow-[0_0_14px_rgba(15,23,42,0.18)]"
                 />
                 <div
                   class="absolute left-1/2 top-2 h-3 w-3 -translate-x-1/2 rounded-full bg-white/45"
@@ -522,82 +567,100 @@ exports[`App > matches the tablet shell snapshot 1`] = `
               </div>
             </div>
             <div
-              class="relative mt-8 rounded-[1.75rem] border border-slate-950/15 bg-slate-950/12 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]"
+              class="relative mt-6 rounded-[1.75rem] border border-slate-950/15 bg-[linear-gradient(180deg,rgba(15,23,42,0.16)_0%,rgba(15,23,42,0.12)_100%)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_16px_28px_rgba(8,47,73,0.12)] sm:mt-8 sm:p-4"
             >
               <div
                 class="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent"
               />
               <div
-                class="space-y-3"
+                class="space-y-3 sm:space-y-3.5"
               >
                 <button
                   aria-pressed="false"
-                  class="group relative flex w-full items-center justify-between rounded-[1.35rem] border px-4 py-4 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 border-slate-950/12 bg-white/18 hover:border-slate-950/20 hover:bg-white/28"
+                  class="group relative flex w-full items-center justify-between overflow-hidden rounded-[1.45rem] border px-4 py-4 text-left transition-[transform,border-color,background-color,box-shadow] duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 active:translate-y-[1px] sm:px-4 sm:py-4 md:px-5 md:py-[1.05rem] border-slate-950/12 bg-[linear-gradient(135deg,rgba(255,255,255,0.22)_0%,rgba(255,255,255,0.14)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] hover:-translate-y-0.5 hover:border-slate-950/20 hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.32)_0%,rgba(255,255,255,0.18)_100%)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_14px_24px_rgba(8,47,73,0.12)]"
                   data-active="false"
                   type="button"
                 >
+                  <div
+                    class="pointer-events-none absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent transition-opacity duration-300 opacity-60"
+                  />
+                  <div
+                    class="pointer-events-none absolute inset-y-3 right-3 w-20 rounded-full blur-2xl transition duration-300 bg-white/0 opacity-0 group-hover:bg-white/20 group-hover:opacity-100"
+                  />
                   <div>
                     <p
-                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] text-slate-950/50"
+                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] transition-colors duration-300 text-slate-950/50"
                     >
                       Cartridge
                     </p>
                     <p
-                      class="mt-2 text-lg font-black uppercase tracking-[0.08em] text-slate-950"
+                      class="mt-2 text-base font-black uppercase tracking-[0.1em] transition-colors duration-300 sm:text-lg text-slate-950/90"
                     >
                       2048
                     </p>
                   </div>
                   <div
-                    class="grid h-10 w-10 place-items-center rounded-full border text-sm font-black transition border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40"
+                    class="relative grid h-10 w-10 shrink-0 place-items-center rounded-full border text-sm font-black transition-all duration-300 sm:h-11 sm:w-11 border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40 group-hover:text-slate-950/85"
                   >
                     GO
                   </div>
                 </button>
                 <button
                   aria-pressed="false"
-                  class="group relative flex w-full items-center justify-between rounded-[1.35rem] border px-4 py-4 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 border-slate-950/12 bg-white/18 hover:border-slate-950/20 hover:bg-white/28"
+                  class="group relative flex w-full items-center justify-between overflow-hidden rounded-[1.45rem] border px-4 py-4 text-left transition-[transform,border-color,background-color,box-shadow] duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 active:translate-y-[1px] sm:px-4 sm:py-4 md:px-5 md:py-[1.05rem] border-slate-950/12 bg-[linear-gradient(135deg,rgba(255,255,255,0.22)_0%,rgba(255,255,255,0.14)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] hover:-translate-y-0.5 hover:border-slate-950/20 hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.32)_0%,rgba(255,255,255,0.18)_100%)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_14px_24px_rgba(8,47,73,0.12)]"
                   data-active="false"
                   type="button"
                 >
+                  <div
+                    class="pointer-events-none absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent transition-opacity duration-300 opacity-60"
+                  />
+                  <div
+                    class="pointer-events-none absolute inset-y-3 right-3 w-20 rounded-full blur-2xl transition duration-300 bg-white/0 opacity-0 group-hover:bg-white/20 group-hover:opacity-100"
+                  />
                   <div>
                     <p
-                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] text-slate-950/50"
+                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] transition-colors duration-300 text-slate-950/50"
                     >
                       Cartridge
                     </p>
                     <p
-                      class="mt-2 text-lg font-black uppercase tracking-[0.08em] text-slate-950"
+                      class="mt-2 text-base font-black uppercase tracking-[0.1em] transition-colors duration-300 sm:text-lg text-slate-950/90"
                     >
                       Pac-Man
                     </p>
                   </div>
                   <div
-                    class="grid h-10 w-10 place-items-center rounded-full border text-sm font-black transition border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40"
+                    class="relative grid h-10 w-10 shrink-0 place-items-center rounded-full border text-sm font-black transition-all duration-300 sm:h-11 sm:w-11 border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40 group-hover:text-slate-950/85"
                   >
                     GO
                   </div>
                 </button>
                 <button
                   aria-pressed="false"
-                  class="group relative flex w-full items-center justify-between rounded-[1.35rem] border px-4 py-4 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 border-slate-950/12 bg-white/18 hover:border-slate-950/20 hover:bg-white/28"
+                  class="group relative flex w-full items-center justify-between overflow-hidden rounded-[1.45rem] border px-4 py-4 text-left transition-[transform,border-color,background-color,box-shadow] duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/50 focus-visible:ring-offset-2 focus-visible:ring-offset-cyan-300 active:translate-y-[1px] sm:px-4 sm:py-4 md:px-5 md:py-[1.05rem] border-slate-950/12 bg-[linear-gradient(135deg,rgba(255,255,255,0.22)_0%,rgba(255,255,255,0.14)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] hover:-translate-y-0.5 hover:border-slate-950/20 hover:bg-[linear-gradient(135deg,rgba(255,255,255,0.32)_0%,rgba(255,255,255,0.18)_100%)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_14px_24px_rgba(8,47,73,0.12)]"
                   data-active="false"
                   type="button"
                 >
+                  <div
+                    class="pointer-events-none absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent transition-opacity duration-300 opacity-60"
+                  />
+                  <div
+                    class="pointer-events-none absolute inset-y-3 right-3 w-20 rounded-full blur-2xl transition duration-300 bg-white/0 opacity-0 group-hover:bg-white/20 group-hover:opacity-100"
+                  />
                   <div>
                     <p
-                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] text-slate-950/50"
+                      class="text-[0.7rem] font-black uppercase tracking-[0.34em] transition-colors duration-300 text-slate-950/50"
                     >
                       Cartridge
                     </p>
                     <p
-                      class="mt-2 text-lg font-black uppercase tracking-[0.08em] text-slate-950"
+                      class="mt-2 text-base font-black uppercase tracking-[0.1em] transition-colors duration-300 sm:text-lg text-slate-950/90"
                     >
                       HexGL
                     </p>
                   </div>
                   <div
-                    class="grid h-10 w-10 place-items-center rounded-full border text-sm font-black transition border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40"
+                    class="relative grid h-10 w-10 shrink-0 place-items-center rounded-full border text-sm font-black transition-all duration-300 sm:h-11 sm:w-11 border-slate-950/15 bg-white/25 text-slate-950/65 group-hover:border-slate-950/25 group-hover:bg-white/40 group-hover:text-slate-950/85"
                   >
                     GO
                   </div>
@@ -607,7 +670,7 @@ exports[`App > matches the tablet shell snapshot 1`] = `
           </section>
         </aside>
         <section
-          class="bg-console-panel/95 px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10"
+          class="bg-console-panel/95 px-3 py-5 sm:px-5 sm:py-7 md:px-8 md:py-10"
         >
           <section
             aria-label="Center display bezel"
@@ -679,17 +742,23 @@ exports[`App > matches the tablet shell snapshot 1`] = `
           </section>
         </section>
         <aside
-          class="bg-console-panel/20 px-3 py-3 md:px-4 md:py-4 border-t border-white/6"
+          class="bg-console-panel/20 px-2.5 py-2.5 sm:px-3 sm:py-3 md:px-4 md:py-4 border-t border-white/6"
         >
           <section
             aria-label="Right joycon region"
-            class="relative flex h-full min-h-[18rem] flex-col overflow-hidden rounded-[2rem] border border-rose-200/35 bg-[linear-gradient(180deg,rgba(255,107,107,0.98)_0%,rgba(248,113,113,0.96)_46%,rgba(220,38,38,0.98)_100%)] px-5 py-6 text-slate-950 shadow-[inset_0_1px_0_rgba(255,255,255,0.2),inset_0_-16px_32px_rgba(127,29,29,0.26)]"
+            class="relative flex h-full min-h-[16rem] flex-col overflow-hidden rounded-[2rem] border border-rose-100/35 bg-[linear-gradient(180deg,rgba(254,202,202,0.5)_0%,rgba(251,146,146,0.98)_12%,rgba(248,113,113,0.97)_44%,rgba(220,38,38,0.99)_100%)] px-4 py-5 text-slate-950 shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_0_-18px_34px_rgba(127,29,29,0.28),0_20px_36px_rgba(127,29,29,0.2)] transition-transform duration-300 sm:px-5 sm:py-6 xl:min-h-[18rem]"
           >
             <div
-              class="pointer-events-none absolute inset-y-6 right-3 w-px bg-white/20"
+              class="pointer-events-none absolute inset-x-5 top-0 h-16 rounded-b-[1.75rem] bg-gradient-to-b from-white/25 to-transparent blur-xl"
             />
             <div
-              class="pointer-events-none absolute left-4 top-10 h-28 w-28 rounded-full bg-white/10 blur-2xl"
+              class="pointer-events-none absolute inset-y-5 right-3 w-px bg-white/20 sm:inset-y-6"
+            />
+            <div
+              class="pointer-events-none absolute left-4 top-10 h-28 w-28 rounded-full bg-white/14 blur-2xl"
+            />
+            <div
+              class="pointer-events-none absolute bottom-10 right-0 h-32 w-24 rounded-l-full bg-slate-950/8 blur-2xl"
             />
             <div
               class="relative flex items-start justify-between gap-4 text-right"
@@ -713,28 +782,28 @@ exports[`App > matches the tablet shell snapshot 1`] = `
               </div>
             </div>
             <div
-              class="relative mt-6 flex items-center justify-center"
+              class="relative mt-5 flex items-center justify-center sm:mt-6"
             >
               <div
                 class="relative h-24 w-24"
               >
                 <div
-                  class="absolute top-0 left-1/2 -translate-x-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.4),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.38)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
+                  class="absolute top-0 left-1/2 -translate-x-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.44),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.4)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
                 >
                   X
                 </div>
                 <div
-                  class="absolute top-1/2 right-0 -translate-y-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.4),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.38)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
+                  class="absolute top-1/2 right-0 -translate-y-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.44),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.4)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
                 >
                   A
                 </div>
                 <div
-                  class="absolute bottom-0 left-1/2 -translate-x-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.4),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.38)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
+                  class="absolute bottom-0 left-1/2 -translate-x-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.44),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.4)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
                 >
                   B
                 </div>
                 <div
-                  class="absolute top-1/2 left-0 -translate-y-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.4),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.38)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
+                  class="absolute top-1/2 left-0 -translate-y-1/2 grid h-8 w-8 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.44),rgba(15,23,42,0.18)_55%,rgba(15,23,42,0.4)_100%)] text-[0.65rem] font-black shadow-[inset_0_2px_6px_rgba(255,255,255,0.2),0_10px_18px_rgba(127,29,29,0.16)]"
                 >
                   Y
                 </div>
@@ -744,21 +813,21 @@ exports[`App > matches the tablet shell snapshot 1`] = `
               </div>
             </div>
             <div
-              class="relative mt-8 flex items-center justify-center"
+              class="relative mt-7 flex items-center justify-center sm:mt-8"
             >
               <div
                 class="absolute h-28 w-28 rounded-full bg-slate-950/10 blur-xl"
               />
               <div
-                class="relative grid h-24 w-24 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.3),rgba(15,23,42,0.22)_55%,rgba(15,23,42,0.46)_100%)] shadow-[inset_0_3px_10px_rgba(255,255,255,0.18),0_18px_28px_rgba(127,29,29,0.25)]"
+                class="relative grid h-24 w-24 place-items-center rounded-full border border-slate-950/20 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.34),rgba(15,23,42,0.22)_55%,rgba(15,23,42,0.48)_100%)] shadow-[inset_0_3px_10px_rgba(255,255,255,0.18),0_18px_28px_rgba(127,29,29,0.25)]"
               >
                 <div
-                  class="h-12 w-12 rounded-full border border-slate-950/25 bg-slate-900/72 shadow-[inset_0_2px_8px_rgba(255,255,255,0.12)]"
+                  class="h-12 w-12 rounded-full border border-slate-950/25 bg-slate-900/74 shadow-[inset_0_2px_8px_rgba(255,255,255,0.12),0_0_0_1px_rgba(255,255,255,0.04)]"
                 />
               </div>
             </div>
             <div
-              class="mt-8 flex justify-end gap-3 pr-1"
+              class="mt-7 flex justify-end gap-3 pr-1 sm:mt-8"
             >
               <div
                 class="h-3 w-3 rounded-full bg-white/30"
@@ -771,19 +840,22 @@ exports[`App > matches the tablet shell snapshot 1`] = `
               />
             </div>
             <div
-              class="relative mt-8 rounded-[1.75rem] border border-slate-950/15 bg-slate-950/12 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)]"
+              class="relative mt-6 rounded-[1.75rem] border border-slate-950/15 bg-[linear-gradient(180deg,rgba(15,23,42,0.16)_0%,rgba(15,23,42,0.12)_100%)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_16px_28px_rgba(127,29,29,0.12)] sm:mt-8 sm:p-4"
             >
               <div
                 class="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent"
               />
               <button
                 aria-disabled="true"
-                class="group relative w-full overflow-hidden rounded-[1.6rem] border px-5 py-5 text-left transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/45 focus-visible:ring-offset-2 focus-visible:ring-offset-rose-300 cursor-not-allowed border-slate-950/10 bg-white/15 text-slate-950/45"
+                class="group relative w-full overflow-hidden rounded-[1.7rem] border px-4 py-4 text-left transition-[transform,border-color,background-color,box-shadow] duration-300 ease-out focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/45 focus-visible:ring-offset-2 focus-visible:ring-offset-rose-300 sm:px-5 sm:py-5 cursor-not-allowed border-slate-950/10 bg-white/15 text-slate-950/45"
                 disabled=""
                 type="button"
               >
                 <div
                   class="pointer-events-none absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-white/55 to-transparent"
+                />
+                <div
+                  class="pointer-events-none absolute inset-y-3 right-3 w-24 rounded-full blur-2xl transition duration-300 bg-transparent opacity-0"
                 />
                 <div
                   class="flex items-center justify-between gap-4"
@@ -801,7 +873,7 @@ exports[`App > matches the tablet shell snapshot 1`] = `
                     </p>
                   </div>
                   <div
-                    class="grid h-12 w-12 place-items-center rounded-full border text-xs font-black uppercase transition border-slate-950/10 bg-white/10 text-current/50"
+                    class="grid h-11 w-11 shrink-0 place-items-center rounded-full border text-[0.68rem] font-black uppercase tracking-[0.16em] transition-all duration-300 sm:h-12 sm:w-12 border-slate-950/10 bg-white/10 text-current/50"
                   >
                     Stop
                   </div>
