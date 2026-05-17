@@ -4,17 +4,20 @@ import { describe, expect, it } from 'vitest'
 import App from './App'
 
 describe('App', () => {
-  it('renders the Tailwind setup message', () => {
+  it('renders the routing skeleton and placeholder regions', () => {
     render(<App />)
 
     expect(
-      screen.getByRole('heading', { name: 'Tailwind CSS is wired in.' })
+      screen.getByRole('heading', { name: 'Console layout scaffolded.' })
     ).toBeInTheDocument()
     expect(
       screen.getByText(
-        /custom arcade theme with joycon, console, and screen bezel tokens/i
+        /directory structure for components, games, context, and views/i
       )
     ).toBeInTheDocument()
+    expect(screen.getByLabelText('Left joycon region')).toBeInTheDocument()
+    expect(screen.getByLabelText('Right joycon region')).toBeInTheDocument()
+    expect(screen.getByText('route=welcome')).toBeInTheDocument()
     expect(screen.getByText('VITE_HEXGL_BASE_PATH=/hexgl/')).toBeInTheDocument()
   })
 })
