@@ -1,6 +1,7 @@
 import { ArcadeRoomBackground } from './components/ArcadeRoomBackground'
 import { ScreenBezel } from './components/CenterDisplay'
 import { ConsoleShell } from './components/ConsoleShell'
+import { GameMenu } from './components/GameMenu'
 import { LeftJoycon } from './components/LeftJoyconPanel'
 import { RightJoycon } from './components/RightJoyconPanel'
 import { SessionProvider } from './context/SessionContext'
@@ -19,9 +20,7 @@ function App() {
             layout={layout}
             leftJoycon={
               <LeftJoycon>
-                <p className="text-sm font-medium text-slate-950/80">
-                  Placeholder region for future controls and game selection.
-                </p>
+                <GameMenu />
               </LeftJoycon>
             }
             screen={
