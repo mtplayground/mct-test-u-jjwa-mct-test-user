@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 import {
+  advancePacmanFrame,
   createPacmanState,
   createPositionKeyPacman,
   getGhostModePacman,
@@ -12,6 +13,8 @@ import {
   type GhostModePacman,
   type PacmanState,
 } from './pacman'
+
+const PACMAN_FRAME_INTERVAL_MS = 220
 
 const keyToDirection: Partial<Record<string, DirectionPacman>> = {
   ArrowUp: 'up',
@@ -124,12 +127,20 @@ const drawPacmanScene = (
   context.fillText(message, 8, boardHeight - 8)
 }
 
-export const GamePacman = () => {
-  const [gameState, setGameState] = useState(() => createPacmanState())
+type GamePacmanProps = {
+  initialState?: PacmanState
+}
+
+export const GamePacman = ({ initialState }: GamePacmanProps) => {
+  const [gameState, setGameState] = useState(
+    () => initialState ?? createPacmanState()
+  )
   const [statusMessage, setStatusMessage] = useState(
     'Use arrow keys to clear the maze.'
   )
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const nextDirectionRef = useRef<DirectionPacman | null>(null)
+  const lastFrameTimeRef = useRef<number | null>(null)
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -140,35 +151,83 @@ export const GamePacman = () => {
       }
 
       event.preventDefault()
-
-      setGameState((currentState) => {
-        const moveResult = runPacmanTurn(currentState, direction)
-
-        if (!moveResult.moved) {
-          setStatusMessage('Wall ahead. Pick another route.')
-          return currentState
-        }
-
-        if (moveResult.collision === 'ghost-hit') {
-          setStatusMessage('Ghost collision. Life lost.')
-        } else if (moveResult.collision === 'ghost-eaten') {
-          setStatusMessage('Ghost eaten during fright mode.')
-        } else if (moveResult.atePowerPellet) {
-          setStatusMessage('Power pellet collected.')
-        } else if (moveResult.atePellet) {
-          setStatusMessage('Pellet cleared.')
-        } else {
-          setStatusMessage('Path advanced.')
-        }
-
-        return moveResult.state
-      })
+      nextDirectionRef.current = direction
     }
 
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
+
+  useEffect(() => {
+    let frameId = 0
+
+    const tick = (frameTime: number) => {
+      if (lastFrameTimeRef.current === null) {
+        lastFrameTimeRef.current = frameTime
+      }
+
+      if (frameTime - lastFrameTimeRef.current >= PACMAN_FRAME_INTERVAL_MS) {
+        lastFrameTimeRef.current = frameTime
+
+        setGameState((currentState) => {
+          if (
+            currentState.lives === 0 ||
+            getRemainingPelletCountPacman(currentState) === 0
+          ) {
+            return currentState
+          }
+
+          const nextDirection = nextDirectionRef.current
+
+          if (nextDirection) {
+            nextDirectionRef.current = null
+
+            const moveResult = runPacmanTurn(currentState, nextDirection)
+
+            if (!moveResult.moved) {
+              setStatusMessage('Wall ahead. Pick another route.')
+              return currentState
+            }
+
+            if (moveResult.collision === 'ghost-hit') {
+              setStatusMessage('Ghost collision. Life lost.')
+            } else if (moveResult.collision === 'ghost-eaten') {
+              setStatusMessage('Ghost eaten during fright mode.')
+            } else if (moveResult.atePowerPellet) {
+              setStatusMessage('Power pellet collected.')
+            } else if (moveResult.atePellet) {
+              setStatusMessage('Pellet cleared.')
+            } else {
+              setStatusMessage('Path advanced.')
+            }
+
+            return moveResult.state
+          }
+
+          const frameResult = advancePacmanFrame(currentState)
+
+          if (frameResult.collision === 'ghost-hit') {
+            setStatusMessage('Ghost collision. Life lost.')
+          } else if (frameResult.collision === 'ghost-eaten') {
+            setStatusMessage('Ghost eaten during fright mode.')
+          } else {
+            setStatusMessage('Ghosts are on the move.')
+          }
+
+          return frameResult.state
+        })
+      }
+
+      frameId = window.requestAnimationFrame(tick)
+    }
+
+    frameId = window.requestAnimationFrame(tick)
+
+    return () => {
+      window.cancelAnimationFrame(frameId)
     }
   }, [])
 
@@ -188,12 +247,16 @@ export const GamePacman = () => {
   }, [gameState, statusMessage])
 
   const resetMaze = () => {
+    nextDirectionRef.current = null
+    lastFrameTimeRef.current = null
     setGameState(createPacmanState())
     setStatusMessage('Use arrow keys to clear the maze.')
   }
 
   const { rows, columns } = getMazeSizePacman(gameState.maze)
   const ghostMode = getGhostModePacman(gameState)
+  const isGameOver = gameState.lives === 0
+  const isMazeCleared = getRemainingPelletCountPacman(gameState) === 0
 
   return (
     <section className="flex h-full min-h-full items-center justify-center p-3 sm:p-5">
@@ -250,17 +313,27 @@ export const GamePacman = () => {
               onClick={resetMaze}
               type="button"
             >
-              New Maze
+              {isGameOver ? 'Restart' : 'New Maze'}
             </button>
           </div>
         </div>
 
         <div className="mt-5 flex min-h-10 items-center justify-between gap-3 rounded-2xl border border-white/8 bg-black/15 px-4 py-3">
           <p className="font-mono text-sm uppercase tracking-[0.14em] text-slate-300">
-            {statusMessage}
+            {isGameOver
+              ? 'Game over. Restart to chase another run.'
+              : isMazeCleared
+                ? 'Maze cleared. Restart for another chase.'
+                : statusMessage}
           </p>
           <p className="font-mono text-xs uppercase tracking-[0.24em] text-slate-500">
-            {ghostMode === 'frightened' ? 'Fright' : ghostMode}
+            {isGameOver
+              ? 'Over'
+              : isMazeCleared
+                ? 'Clear'
+                : ghostMode === 'frightened'
+                  ? 'Fright'
+                  : ghostMode}
           </p>
         </div>
 
