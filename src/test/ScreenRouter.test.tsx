@@ -62,6 +62,8 @@ describe('ScreenRouter', () => {
       )
     ).toBeInTheDocument()
     expect(screen.getByLabelText('Pac-Man maze')).toBeInTheDocument()
+    expect(screen.getByLabelText('Pac-Man score')).toHaveTextContent('0')
+    expect(screen.getByLabelText('Pac-Man lives')).toHaveTextContent('3')
   })
 
   it('renders the registered 2048 component for the 2048 selection', () => {

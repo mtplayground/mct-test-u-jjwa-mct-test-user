@@ -68,6 +68,9 @@ describe('App', () => {
       screen.queryByRole('heading', { name: '2048' })
     ).not.toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Pac-Man' })).toBeInTheDocument()
+    expect(screen.getByLabelText('Pac-Man maze')).toBeInTheDocument()
+    expect(screen.getByLabelText('Pac-Man score')).toHaveTextContent('0')
+    expect(screen.getByLabelText('Pac-Man lives')).toHaveTextContent('3')
     expect(
       screen.getByRole('button', { name: /cartridge pac-man on/i })
     ).toHaveAttribute('data-active', 'true')
