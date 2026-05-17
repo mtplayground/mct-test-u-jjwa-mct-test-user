@@ -1,0 +1,182 @@
+Architecture plan for issues #1-#34
+
+1. Project shape
+
+- Stack: Vite + React + TypeScript + Tailwind CSS.
+- App style: single-page app with one top-level `App` shell rendering a handheld-console layout and switching the inner screen content by session state.
+- State model: central `SessionContext` + `useReducer` for app/session flow; individual games keep their own isolated game-state and loops where needed.
+
+2. Proposed module structure
+
+```
+src/
+  main.tsx
+  App.tsx
+  app/
+    providers/
+      SessionProvider.tsx
+    router/
+      ScreenRouter.tsx
+    routes/
+      WelcomeView.tsx
+      GoodbyeView.tsx
+  components/
+    shell/
+      ConsoleShell.tsx
+      ArcadeRoomBackground.tsx
+      LeftJoycon.tsx
+      RightJoycon.tsx
+      ScreenBezel.tsx
+      InnerDisplay.tsx
+    controls/
+      GameMenu.tsx
+      EndPlayingButton.tsx
+    ui/
+      Button.tsx
+      Panel.tsx
+      Stat.tsx
+  features/
+    session/
+      session.types.ts
+      session.reducer.ts
+      SessionContext.tsx
+    games/
+      registry.ts
+      game.types.ts
+      gameConfig.ts
+      2048/
+        logic.ts
+        Game2048.tsx
+      pacman/
+        maze.ts
+        logic.ts
+        ghostAI.ts
+        PacManGame.tsx
+      hexgl/
+        HexGLGame.tsx
+        assets/
+  utils/
+    time.ts
+    keyboard.ts
+    cn.ts
+  test/
+    setup.ts
+```
+
+3. Shared types
+
+- `GameId = 'welcome' | '2048' | 'pacman' | 'hexgl' | 'goodbye'`
+- `SessionStatus = 'idle' | 'playing' | 'ended'`
+- `SessionState`
+  - `status`
+  - `activeGame`
+  - `startedAt`
+  - `endedAt`
+  - `elapsedSeconds`
+  - `gamesPlayed`
+- `SessionAction`
+  - `startGame`
+  - `switchGame`
+  - `tick`
+  - `endSession`
+  - `resetSession`
+- `GameRegistration`
+  - `id`
+  - `label`
+  - `component`
+  - optional `description` / `disabled`
+
+4. Routing and rendering model
+
+- Avoid React Router for now; issue list only requires screen switching inside a single shell.
+- `ScreenRouter` should be a pure mapping from `SessionState` to one of:
+  - `WelcomeView`
+  - registered game component
+  - `GoodbyeView`
+- `GameMenu` should use the central game registry so new games register once and appear everywhere.
+
+5. Layout strategy
+
+- Build the console shell as composable presentational pieces instead of one large component.
+- Keep shell markup stable before wiring game logic:
+  - background
+  - left joycon
+  - right joycon
+  - center bezel/display
+- Joycon internals for menu/button should be slot-based so issue #19 and #20 only fill existing regions.
+
+6. State boundaries
+
+- Session-wide concerns live in context/reducer only.
+- 2048 logic should be pure and testable without React.
+- Pac-Man logic should separate maze/collision rules from the React render loop.
+- HexGL should be treated as an embedded external game wrapper with lifecycle cleanup contained in its feature folder.
+
+7. Testing strategy
+
+- Vitest unit tests for:
+  - session reducer transitions
+  - time formatting utility
+  - 2048 pure logic
+  - Pac-Man pure logic where practical
+- Playwright smoke test should validate:
+  - app loads
+  - user can start/select a game
+  - end session returns goodbye metrics
+
+8. Dependency flow by issue
+
+- Foundation:
+  - #1 Vite/React/TS
+  - #2 Tailwind
+  - #3 lint/format/test
+  - #4 env vars
+  - #5 directory structure and routing skeleton
+- Visual shell:
+  - #6 background/body
+  - #7 left joycon
+  - #8 right joycon
+  - #9 bezel/display
+  - #10 wire responsive shell
+- Session domain:
+  - #11 state shape/reducer
+  - #12 provider + timer tick
+  - #13 time utility
+  - #14 reducer tests
+  - #15 wrap app with provider
+- Core app screens:
+  - #16 welcome
+  - #17 goodbye
+  - #18 screen router
+  - #19 game menu
+  - #20 end button
+  - #21 wire router/menu/button
+- Games:
+  - #22 2048 logic
+  - #23 2048 component
+  - #24 register 2048
+  - #25 Pac-Man maze/movement
+  - #26 ghost AI/collisions
+  - #27 Pac-Man component
+  - #28 register Pac-Man
+  - #29 vendor HexGL assets
+  - #30 HexGL wrapper
+  - #31 register HexGL
+- Finish:
+  - #32 visual polish
+  - #33 Playwright smoke
+  - #34 prod build verification + self-host instructions
+
+9. Key design decisions
+
+- Use a central game registry to avoid hardcoding menu/router options in multiple places.
+- Keep session timing in one provider tick so shell and goodbye metrics stay consistent.
+- Prefer CSS/Tailwind-driven console visuals over canvas for the shell to keep layout responsive and maintainable.
+- Keep game implementations isolated by feature folder to reduce cross-issue merge risk.
+- Treat HexGL as a contained integration boundary; do not intermingle vendored assets with app UI code.
+
+10. Risks to watch
+
+- HexGL asset bundling may need Vite static asset handling decisions early in #29.
+- Pac-Man loop/collision performance can become messy if rules are mixed into render code.
+- Responsive shell layout should be validated before heavy game integration to avoid rework in #23/#27/#30.
