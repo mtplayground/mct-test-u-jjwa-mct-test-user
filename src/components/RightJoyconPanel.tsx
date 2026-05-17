@@ -66,3 +66,5 @@ export const RightJoyconPanel = ({ children }: RightJoyconPanelProps) => {
     </section>
   )
 }
+
+export const RightJoycon = RightJoyconPanel
