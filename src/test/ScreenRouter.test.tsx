@@ -123,5 +123,9 @@ describe('ScreenRouter', () => {
       screen.queryByRole('heading', { name: '2048' })
     ).not.toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'HexGL' })).toBeInTheDocument()
+    expect(screen.getByLabelText('HexGL game frame')).toHaveAttribute(
+      'src',
+      '/hexgl/index.html'
+    )
   })
 })
