@@ -10,7 +10,19 @@ export const ScreenRouter = () => {
   const activeGame = selectedGame
 
   if (isEnded) {
-    return <GoodbyeView />
+    return (
+      <>
+        {selectedGame === 'hexgl' ? (
+          <div
+            aria-hidden="true"
+            className="pointer-events-none h-0 overflow-hidden opacity-0"
+          >
+            <HexglScreen />
+          </div>
+        ) : null}
+        <GoodbyeView />
+      </>
+    )
   }
 
   if (activeGame === null) {

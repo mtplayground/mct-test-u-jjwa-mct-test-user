@@ -14,7 +14,7 @@ function App() {
 
   return (
     <SessionProvider>
-      <main className="relative isolate min-h-screen overflow-hidden bg-console-backdrop px-4 py-6 text-slate-50 sm:px-6 sm:py-8">
+      <main className="relative isolate min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.08),transparent_30%),linear-gradient(180deg,rgba(2,6,23,0.98)_0%,rgba(2,6,23,1)_100%)] px-4 py-6 text-slate-50 sm:px-6 sm:py-8">
         <ArcadeRoomBackground />
         <div className="relative mx-auto flex min-h-[calc(100vh-3rem)] max-w-[88rem] items-center justify-center md:min-h-[calc(100vh-4rem)]">
           <ConsoleShell
