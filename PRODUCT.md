@@ -34,6 +34,8 @@ right joycon.
 - `HexGL` is mounted behind a `Launch Race` gate; the iframe stays at
   `about:blank` until the player explicitly starts the static bundle, then
   shifts to `VITE_HEXGL_BASE_PATH + "index.html"` and takes keyboard focus.
+  Its screen also uses larger responsive minimum heights than the other games
+  so the race view fills more of the bezel on tablet and desktop layouts.
 - The game menu highlights the active game and the end-session control is wired
   into shared session state.
 - The goodbye screen reports total time plus a per-game breakdown for `2048`,
@@ -63,6 +65,9 @@ right joycon.
 - The HexGL bundle is booted on demand instead of immediately on screen
   selection, which keeps the shell responsive and avoids unnecessary asset
   churn when players switch away quickly.
+- HexGL owns its own taller screen sizing instead of relying only on the
+  shared bezel floor, so the racing view can claim more vertical space without
+  changing 2048 or Pac-Man layouts.
 
 ## Conventions
 
