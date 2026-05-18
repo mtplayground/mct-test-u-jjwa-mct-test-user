@@ -29,7 +29,7 @@ export const GameHexgl = () => {
   }, [isBooted])
 
   return (
-    <section className="flex h-full min-h-full flex-col bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.12),transparent_45%),linear-gradient(180deg,#030712_0%,#020617_100%)]">
+    <section className="flex min-h-[40rem] flex-col bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.12),transparent_45%),linear-gradient(180deg,#030712_0%,#020617_100%)] md:min-h-[46rem] xl:min-h-[52rem]">
       <div className="flex items-center justify-between border-b border-cyan-400/10 bg-slate-950/70 px-4 py-3 sm:px-5">
         <div>
           <p className="font-mono text-[0.68rem] uppercase tracking-[0.34em] text-cyan-300/70">
@@ -45,7 +45,7 @@ export const GameHexgl = () => {
       </div>
 
       <div className="flex min-h-0 flex-1 p-2 sm:p-3">
-        <div className="relative h-full w-full overflow-hidden rounded-[1.4rem] border border-cyan-300/10 bg-black shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+        <div className="relative min-h-[30rem] w-full overflow-hidden rounded-[1.4rem] border border-cyan-300/10 bg-black shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] md:min-h-[36rem] xl:min-h-[42rem]">
           {!isBooted ? (
             <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_45%),rgba(2,6,23,0.92)] px-6 text-center">
               <p className="max-w-lg font-mono text-sm uppercase tracking-[0.2em] text-cyan-100/80">
@@ -64,7 +64,7 @@ export const GameHexgl = () => {
           ) : null}
           <iframe
             aria-label="HexGL game frame"
-            className="h-full w-full border-0"
+            className="min-h-[30rem] w-full border-0 md:min-h-[36rem] xl:min-h-[42rem]"
             onLoad={() => {
               if (isBooted) {
                 focusHexglFrame(iframeRef.current)
