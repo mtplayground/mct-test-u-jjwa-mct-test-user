@@ -17,9 +17,9 @@ export const CenterDisplay = ({ children }: CenterDisplayProps) => {
 
       <div
         aria-label="Inner display region"
-        className="aspect-[16/10] w-full overflow-hidden rounded-[1.5rem] border border-white/6 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.12),transparent_28%),linear-gradient(180deg,rgba(15,23,42,0.96)_0%,rgba(2,6,23,1)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+        className="min-h-[28rem] w-full overflow-hidden rounded-[1.5rem] border border-white/6 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.12),transparent_28%),linear-gradient(180deg,rgba(15,23,42,0.96)_0%,rgba(2,6,23,1)_100%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] md:min-h-[32rem] xl:min-h-[36rem]"
       >
-        <div className="h-full w-full overflow-auto px-5 py-6 sm:px-6 sm:py-8">
+        <div className="w-full overflow-auto px-5 py-6 sm:px-6 sm:py-8">
           {children}
         </div>
       </div>
