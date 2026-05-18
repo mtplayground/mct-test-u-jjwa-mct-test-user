@@ -81,9 +81,10 @@ describe('App', () => {
       screen.queryByRole('heading', { name: 'Pac-Man' })
     ).not.toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'HexGL' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Launch Race' })).toBeInTheDocument()
     expect(screen.getByLabelText('HexGL game frame')).toHaveAttribute(
       'src',
-      '/hexgl/index.html'
+      'about:blank'
     )
     expect(
       screen.getByRole('button', { name: /cartridge hexgl on/i })

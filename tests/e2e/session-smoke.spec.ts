@@ -45,9 +45,10 @@ test('smoke flow tracks time across all games and goodbye summary balances', asy
 
   await page.getByRole('button', { name: /cartridge hexgl go/i }).click()
   await expect(page.getByRole('heading', { name: 'HexGL' })).toBeVisible()
+  await expect(page.getByRole('button', { name: 'Launch Race' })).toBeVisible()
   await expect(page.getByLabel('HexGL game frame')).toHaveAttribute(
     'src',
-    '/hexgl/index.html'
+    'about:blank'
   )
   await page.waitForTimeout(GAME_PAUSE_MS)
 

@@ -19,22 +19,30 @@ describe('GameHexgl', () => {
     cleanup()
   })
 
-  it('renders the HexGL iframe with the configured asset path', () => {
+  it('renders the HexGL shell before the race bundle is launched', () => {
     render(<GameHexgl />)
 
     expect(screen.getByRole('heading', { name: 'HexGL' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: 'Launch Race' })
+    ).toBeInTheDocument()
     expect(screen.getByLabelText('HexGL game frame')).toHaveAttribute(
       'src',
-      '/hexgl/index.html'
+      'about:blank'
     )
   })
 
-  it('focuses the iframe on mount and when the frame loads', () => {
+  it('boots and focuses the iframe when the race is launched', () => {
     render(<GameHexgl />)
+
+    expect(focusFrame).not.toHaveBeenCalled()
+
+    fireEvent.click(screen.getByRole('button', { name: 'Launch Race' }))
 
     const frame = screen.getByLabelText('HexGL game frame')
 
     expect(focusFrame).toHaveBeenCalledTimes(1)
+    expect(frame).toHaveAttribute('src', '/hexgl/index.html')
 
     fireEvent.load(frame)
 
