@@ -31,8 +31,9 @@ right joycon.
   reset.
 - `Pac-Man` is canvas-based with pellets, power pellets, ghosts, collisions,
   lives, and restart behavior.
-- `HexGL` is mounted in an iframe pointed at `VITE_HEXGL_BASE_PATH +
-  "index.html"` and is expected to receive keyboard focus on mount.
+- `HexGL` is mounted behind a `Launch Race` gate; the iframe stays at
+  `about:blank` until the player explicitly starts the static bundle, then
+  shifts to `VITE_HEXGL_BASE_PATH + "index.html"` and takes keyboard focus.
 - The game menu highlights the active game and the end-session control is wired
   into shared session state.
 - The goodbye screen reports total time plus a per-game breakdown for `2048`,
@@ -59,6 +60,9 @@ right joycon.
   with React components layered on top.
 - HexGL is not rebuilt from source inside the React app; it is treated as a
   static bundle and served as-is from the public/dist tree.
+- The HexGL bundle is booted on demand instead of immediately on screen
+  selection, which keeps the shell responsive and avoids unnecessary asset
+  churn when players switch away quickly.
 
 ## Conventions
 
