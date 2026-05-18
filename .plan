@@ -1,40 +1,38 @@
-Architecture plan for issue #69
+Architecture plan for issue #71
 
 1. Project shape
 
 - Stack: Vite + React + TypeScript + Tailwind CSS.
-- App structure: a handheld-console shell with fixed outer chrome and a center display that hosts the active game or view.
-- Relevant surface area for this issue: `src/components/CenterDisplay.tsx` plus any tests that lock screen layout behavior.
+- App structure: a handheld-console shell with a central display region that hosts the active game view.
+- Relevant surface area for this issue: `src/games/GameHexgl.tsx` and the tests that lock HexGL screen behavior.
 
 2. Module structure and file ownership
 
-- `src/components/CenterDisplay.tsx`
-  - owns the bezel shell and inner display container sizing behavior
-- `src/components/ConsoleShell.tsx`
-  - composes left joycon, center display, and right joycon around the screen region
-- `src/games/`
-  - contains game screens that must continue to render correctly after the display sizing change
-- `src/test/` and `src/__snapshots__/`
-  - hold regression coverage if the flexible-height change needs test updates
+- `src/games/GameHexgl.tsx`
+  - owns the HexGL screen layout, launch gate, iframe well, and iframe sizing
+- `src/views/ScreenRouter.tsx`
+  - mounts the HexGL screen when `selectedGame === 'hexgl'`
+- `src/test/GameHexgl.test.tsx`
+  - covers the launch-gated iframe behavior directly
+- `src/App.test.tsx`, `src/test/ScreenRouter.test.tsx`, `tests/e2e/session-smoke.spec.ts`
+  - provide integration and smoke coverage for the mounted HexGL flow
 
 3. Dependencies
 
-- No new feature dependencies.
-- Issue #69 depends on the existing shell and game integrations already merged on `main`.
-- Validation should cover the current three game surfaces:
-  - 2048
-  - Pac-Man
-  - HexGL
+- No new cross-feature dependency.
+- Issue #71 builds on the already-merged launch-gated HexGL screen and existing flexible center display.
+- Validation should cover the HexGL view specifically at tablet and desktop widths inside the existing bezel.
 
 4. Key design decisions
 
-- Replace the fixed `aspect-[16/10]` inner display sizing with a responsive minimum-height floor:
-  - `min-h-[28rem] md:min-h-[32rem] xl:min-h-[36rem]`
-- Keep `overflow-auto` on the inner display so oversized content scrolls instead of clipping.
-- Remove the inner wrapper's `h-full` constraint so children can grow beyond the minimum floor when needed.
-- Keep the bezel component as the single source of truth for center-screen sizing; do not push height rules down into individual games.
+- Replace the current `h-full min-h-full` sizing approach in `GameHexgl` with explicit responsive minimum heights:
+  - outer screen section: `min-h-[40rem] md:min-h-[46rem] xl:min-h-[52rem]`
+  - iframe well: `min-h-[30rem] md:min-h-[36rem] xl:min-h-[42rem]`
+  - iframe element: match the iframe well min-heights
+- Keep the launch gate intact so the heavy HexGL bundle still boots only on explicit user action.
+- Scope the sizing change to the HexGL screen rather than pushing more height rules into the shared bezel.
 
 5. Verification plan
 
-- Build and run existing test/lint coverage after the change.
-- Manually verify the display height feels sensible for desktop and tablet layouts across all three games.
+- Run the existing lint, unit, build, and smoke coverage after the change.
+- Manually verify the HexGL screen fills the bezel sensibly at desktop and tablet widths before and after pressing `Launch Race`.
