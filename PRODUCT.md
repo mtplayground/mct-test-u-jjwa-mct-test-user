@@ -17,6 +17,8 @@ right joycon.
 
 - Renders an arcade-room backdrop and responsive console shell for desktop and
   tablet layouts.
+- Uses a flexible center display with responsive minimum heights so tall game
+  screens can grow instead of being clipped into a fixed aspect box.
 - Tracks one session across multiple games with total elapsed time and
   per-game elapsed time.
 - Shows a welcome screen before play and a goodbye summary after the session
@@ -51,6 +53,8 @@ right joycon.
 
 - Session timing is centralized in `SessionContext` with a `100ms` tick and a
   reducer-driven state model.
+- The center display owns screen sizing centrally; games are allowed to expand
+  past the minimum display height and fall back to scrolling when oversized.
 - `2048` and core `Pac-Man` behavior are implemented as testable pure logic,
   with React components layered on top.
 - HexGL is not rebuilt from source inside the React app; it is treated as a
